@@ -1,23 +1,21 @@
-import {defineConfig} from "vite";
+import { defineConfig } from 'vite'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
-import vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue'
 export default defineConfig({
-    plugins: [
-        vue(),
-    ],
+    plugins: [vue()],
     build: {
         lib: {
             entry: {
-                index: resolve(__dirname, 'index.ts'),
+                index: resolve(__dirname, 'index.ts')
             },
             name: '$ZJ',
             fileName: (format, entryName) => {
                 if (format === 'cjs') return `${entryName}.${format}`
                 return `${entryName}.${format}.js`
             },
-            formats: ["es", "cjs", "umd"],
+            formats: ['es', 'cjs', 'umd']
         },
         rollupOptions: {
             // 确保外部化处理那些
@@ -33,12 +31,8 @@ export default defineConfig({
                     '@zj-library/vue-components': '$ZJComponents',
                     '@zj-library/vue-hooks': '$ZJHooks',
                     vue: 'Vue'
-                },
-            },
-        },
-    },
+                }
+            }
+        }
+    }
 })
-
-
-
-

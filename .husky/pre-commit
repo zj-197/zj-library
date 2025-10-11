@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# 格式化文件
+node bin/pre-publish/prettier-format.cjs
+

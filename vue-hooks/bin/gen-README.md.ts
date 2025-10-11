@@ -1,9 +1,9 @@
-import { generate } from '../../bin/gen-simple-ts-doc/index.ts';
-import {dirname, resolve} from 'node:path'
+import { generate } from '../../bin/gen-simple-ts-doc/index.ts'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '../../')
-const vueHooks = resolve(__dirname, '../types/src');
+const vueHooks = resolve(__dirname, '../types/src')
 
 const vueHooksH1 = 'vue-hooks 钩子函数'
 const vueHooksDesc = '一些常用的钩子函数'
@@ -14,9 +14,9 @@ generate({
     out: resolve(root, 'vitepress-docs/vue-hooks'),
     isOutputSingle: true,
     outputSingleConfig: {
-        fileName: "index",
+        fileName: 'index',
         h1: vueHooksH1,
-        desc: vueHooksDesc,
+        desc: vueHooksDesc
     },
     titleMap: {}
 })
@@ -27,10 +27,9 @@ generate({
     out: resolve(root, 'vue-hooks'),
     isOutputSingle: true,
     outputSingleConfig: {
-        fileName: "README",
+        fileName: 'README',
         h1: vueHooksH1,
-        desc: vueHooksDesc,
+        desc: vueHooksDesc
     },
     titleMap: {}
 })
-

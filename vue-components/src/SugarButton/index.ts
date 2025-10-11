@@ -7,4 +7,3 @@ export default SugarButton
 
 export * from './types'
 export type SugarButtonInstance = InstanceType<typeof ZJSugarButton> & unknown
-

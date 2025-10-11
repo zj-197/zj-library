@@ -7,4 +7,3 @@ export default LoadList
 
 export * from './types'
 export type LoadListInstance = InstanceType<typeof ZJLoadList> & unknown
-

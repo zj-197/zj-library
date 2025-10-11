@@ -1,12 +1,12 @@
-import BaseCpn from '../../utils/base-chart';
-import type { Config, CustomSeriesOption } from '../../utils/type';
-import type { MapSeriesOption, VisualMapComponentOption } from 'echarts/types/dist/echarts';
-import * as echarts from 'echarts';
-import { merge } from '@zj-library/utils';
-import province from './province.json';
+import BaseCpn from '../../utils/base-chart'
+import type { Config, CustomSeriesOption } from '../../utils/type'
+import type { MapSeriesOption, VisualMapComponentOption } from 'echarts/types/dist/echarts'
+import * as echarts from 'echarts'
+import { merge } from '@zj-library/utils'
+import province from './province.json'
 interface MapConfig extends Config {
-	map: MapSeriesOption['map'] | 'china';
-	geoIndex: MapSeriesOption['geoIndex'];
+    map: MapSeriesOption['map'] | 'china'
+    geoIndex: MapSeriesOption['geoIndex']
 }
 // geo: [
 // 	{
@@ -77,48 +77,45 @@ interface MapConfig extends Config {
 // 	echarts.registerMap('china', province)
 // }
 // 还是得从网上拉
-export function registerChinaCity () {
-
-}
+export function registerChinaCity() {}
 
 export default class MapChart extends BaseCpn {
-	series: (MapSeriesOption & CustomSeriesOption)[];
-	visualMap: VisualMapComponentOption[];
+    series: (MapSeriesOption & CustomSeriesOption)[]
+    visualMap: VisualMapComponentOption[]
 
-	constructor(config: MapConfig[], title?: string) {
-		super();
-		this.series = [];
-		this.visualMap = [];
-		for (const item of config) {
-			this.series.push({
-				type: 'map',
-				map: 'xx',
-				roam: true,
-				name: item.seriesName,
-				geoIndex: item.geoIndex,
-				__dataKey__: item.seriesDataKey,
-			});
-		}
-		if (title) {
-			this.setTitle(title);
-		}
-	}
+    constructor(config: MapConfig[], title?: string) {
+        super()
+        this.series = []
+        this.visualMap = []
+        for (const item of config) {
+            this.series.push({
+                type: 'map',
+                map: 'xx',
+                roam: true,
+                name: item.seriesName,
+                geoIndex: item.geoIndex,
+                __dataKey__: item.seriesDataKey
+            })
+        }
+        if (title) {
+            this.setTitle(title)
+        }
+    }
 
-	// @ts-ignore
-	setSeries(seriesDataKey: string, options: (typeof this.series)[0]) {
-		const config = this.series.find((item) => item.__dataKey__ === seriesDataKey);
-		if (options.data) {
-			if (config) {
-				this.clearData(config);
-			}
-		}
-		merge(config, false, options);
-	}
+    // @ts-ignore
+    setSeries(seriesDataKey: string, options: (typeof this.series)[0]) {
+        const config = this.series.find((item) => item.__dataKey__ === seriesDataKey)
+        if (options.data) {
+            if (config) {
+                this.clearData(config)
+            }
+        }
+        merge(config, false, options)
+    }
 
-	setSeriess(fn: (item: MapSeriesOption & CustomSeriesOption) => void) {
-		for (const item of this.series) {
-			fn(item);
-		}
-	}
+    setSeriess(fn: (item: MapSeriesOption & CustomSeriesOption) => void) {
+        for (const item of this.series) {
+            fn(item)
+        }
+    }
 }
-

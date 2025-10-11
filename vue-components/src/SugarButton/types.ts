@@ -1,10 +1,10 @@
-import type {ButtonProps, ElMessageBoxOptions} from "element-plus";
+import type { ButtonProps, ElMessageBoxOptions } from 'element-plus'
 
 export type SugarButtonPropsRequired = Omit<ButtonProps, 'loading'> & {
     // 自动loading
-    autoLoading: boolean,
+    autoLoading: boolean
     // 自动弹出ELMsgBox
-    autoMessageBox: boolean,
+    autoMessageBox: boolean
     messageBoxOptions: ElMessageBoxOptions
 }
 

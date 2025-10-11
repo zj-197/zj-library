@@ -1,13 +1,10 @@
 {
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "noEmit": true,
-    "types": ["vue"],
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.vue"
-  ]
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "types": ["vue"],
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*.ts", "src/**/*.vue"]
 }
