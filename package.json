@@ -22,7 +22,8 @@
     "docs:preview": "vitepress preview vitepress-docs",
     "publish": "pnpm publish -r",
     "update:version": "pnpm changeset version",
-    "cs": "pnpm changeset"
+    "cs": "pnpm changeset",
+    "prepub": "node bin/pre-publish/index.cjs"
   },
   "files": [
     "types",
