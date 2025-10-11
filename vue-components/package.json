@@ -1,0 +1,62 @@
+{
+  "name": "@zj-library/vue-components",
+  "version": "1.0.1",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "vue封装的相关组件",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "unpkg": "dist/index.umd.js",
+  "jsdelivr": "dist/index.umd.js",
+  "files": [
+    "dist",
+    "types",
+    "web-types.json",
+    "tags.json",
+    "attributes.json",
+    "README.md",
+    "global.d.ts",
+    "package.json",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "npm run check-type && npm run gen-type && vite build && node bin/gen-attributes.json.cjs && node bin/gen-README.md.cjs && node bin/gen-tags.json.cjs",
+    "gen-type": "tsc --project tsconfig-gen-type.json",
+    "check-type": "tsc --project tsconfig-check-type.json",
+    "dev": "vite"
+  },
+  "keywords": [
+    "components",
+    "zj"
+  ],
+  "author": "ZJ",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@zj-library/utils": "workspace:^",
+    "@zj-library/vue-hooks": "workspace:^",
+    "element-plus": "^2.11.3",
+    "vue": "catalog:",
+    "@vue/runtime-core": "^3.5.21"
+  },
+  "types": "types/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": {
+        "default": "./dist/index.es.js"
+      },
+      "require": {
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1"
+  },
+  "web-types": "web-types.json"
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "types",
+    "types": ["vue"],
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "index.ts",
+    "src/shims-vue.d.ts"
+  ]
+}

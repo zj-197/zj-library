@@ -1,0 +1,3051 @@
+{
+  "$schema": "http://json.schemastore.org/web-types",
+  "framework": "vue",
+  "name": "@zj-library/vue-components",
+  "js-types-syntax": "typescript",
+  "description-markup": "markdown",
+  "contributions": {
+    "html": {
+      "vue-components": [
+        {
+          "name": "date-picker",
+          "description": "el-date-picker的封装版本",
+          "source": {
+            "symbol": "DatePicker"
+          },
+          "props": [
+            {
+              "name": "available-start-date",
+              "description": "允许的开始日期，如果只传这个则会禁用该日期之前的所有日期",
+              "type": [
+                "Date"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "available-end-date",
+              "description": "允许的结束日期，如果只传这个则会禁用该日期之后的所有日期",
+              "type": [
+                "Date"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "model-value",
+              "description": "binding value, if it is an array, the length should be 2",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "number",
+                "string",
+                "Date",
+                "[Date, Date] | [string, string]"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "readonly",
+              "description": "whether DatePicker is read only",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "whether DatePicker is disabled",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "size",
+              "description": "size of Input",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "'' | 'large' | 'default' | 'small'"
+              ]
+            },
+            {
+              "name": "editable",
+              "description": "whether the input is editable",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "clearable",
+              "description": "whether to show clear button",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "placeholder",
+              "description": "placeholder in non-range mode",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "start-placeholder",
+              "description": "placeholder for the start date in range mode",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "end-placeholder",
+              "description": "placeholder for the end date in range mode",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "type",
+              "description": "type of the picker",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "'year' | 'month' | 'Date' | 'dates' | 'datetime' | 'week' | 'datetimerange' | 'daterange' | 'monthrange'"
+              ],
+              "default": "date"
+            },
+            {
+              "name": "format",
+              "description": "format of the displayed value in the input box",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                {
+                  "name": "string see",
+                  "source": {
+                    "symbol": "string see"
+                  }
+                }
+              ],
+              "default": "YYYY-MM-DD"
+            },
+            {
+              "name": "popper-class",
+              "description": "custom class name for DatePicker's dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "popper-options",
+              "description": "Customized popper option see more at [popper.js](https://popper.js.org/docs/v2/)",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "Partial<PopperOptions>"
+              ],
+              "default": "{}"
+            },
+            {
+              "name": "range-separator",
+              "description": "range separator",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string"
+              ],
+              "default": "'-'"
+            },
+            {
+              "name": "default-value",
+              "description": "optional, default date of the calendar",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "Date",
+                "[Date, Date]"
+              ]
+            },
+            {
+              "name": "default-time",
+              "description": "optional, the time value to use when selecting date range",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "Date",
+                "[Date, Date]"
+              ]
+            },
+            {
+              "name": "value-format",
+              "description": "optional, format of binding value. If not specified, the binding value will be a Date object",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                {
+                  "name": "string see",
+                  "source": {
+                    "symbol": "string see"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "id",
+              "description": "same as `id` in native input",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string",
+                "[string, string]"
+              ]
+            },
+            {
+              "name": "name",
+              "description": "same as `name` in native input",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string",
+                "[string, string]"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "unlink-panels",
+              "description": "unlink two date-panels in range-picker",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "prefix-icon",
+              "description": "custom prefix icon component. By default, if the value of `type` is `TimeLikeType`, the value is `Clock`, else is `Calendar`",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string",
+                {
+                  "name": "Component",
+                  "source": {
+                    "symbol": "Component",
+                    "module": "vue"
+                  }
+                }
+              ],
+              "default": "''"
+            },
+            {
+              "name": "clear-icon",
+              "description": "custom clear icon component",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string",
+                {
+                  "name": "Component",
+                  "source": {
+                    "symbol": "Component",
+                    "module": "vue"
+                  }
+                }
+              ],
+              "default": "CircleClose"
+            },
+            {
+              "name": "validate-event",
+              "description": "whether to trigger form validation",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "disabled-date",
+              "description": "a function determining if a date is disabled with that date as its parameter. Should return a Boolean",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "(data: Date) => boolean"
+              ]
+            },
+            {
+              "name": "shortcuts",
+              "description": "an object array to set shortcut options",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "Array<{ text: string, value: Date | Function }>"
+              ],
+              "default": "[]"
+            },
+            {
+              "name": "cell-class-name",
+              "description": "set custom className",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "(data: Date) => string"
+              ]
+            },
+            {
+              "name": "teleported",
+              "description": "whether date-picker dropdown is teleported to the body",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "custom cell content",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#slots"
+            },
+            {
+              "name": "range-separator",
+              "description": "custom range separator content",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#slots"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "change",
+                "description": "triggers when user confirms the value",
+                "doc-url": "https://element-plus.org/en-US/component/date-picker.html#events"
+              },
+              {
+                "name": "blur",
+                "description": "triggers when Input blurs",
+                "doc-url": "https://element-plus.org/en-US/component/date-picker.html#events"
+              },
+              {
+                "name": "focus",
+                "description": "triggers when Input focuses",
+                "doc-url": "https://element-plus.org/en-US/component/date-picker.html#events"
+              },
+              {
+                "name": "calendar-change",
+                "description": "triggers when the calendar selected date is changed.",
+                "doc-url": "https://element-plus.org/en-US/component/date-picker.html#events"
+              },
+              {
+                "name": "panel-change",
+                "description": "triggers when the navigation button click.",
+                "doc-url": "https://element-plus.org/en-US/component/date-picker.html#events"
+              },
+              {
+                "name": "visible-change",
+                "description": "triggers when the DatePicker's dropdown appears/disappears",
+                "doc-url": "https://element-plus.org/en-US/component/date-picker.html#events"
+              }
+            ]
+          }
+        },
+        {
+          "name": "form-item",
+          "source": {
+            "symbol": "FormItem"
+          },
+          "description": "el-form-item的二次封装版",
+          "props": [
+            {
+              "name": "value-type",
+              "description": "rules 中的type",
+              "type": [
+                "'string'",
+                "'number'",
+                "'array'",
+                "'object'",
+                "'boolean'",
+                "'date'"
+              ]
+            },
+            {
+              "name": "pattern",
+              "description": "rules 中的pattern",
+              "type": [
+                "RegExp"
+              ]
+            },
+            {
+              "name": "trigger",
+              "description": "rules 中的trigger",
+              "type": [
+                "'change'",
+                "'blur'"
+              ]
+            },
+            {
+              "name": "message",
+              "description": "rules 中的message",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "prop",
+              "description": "A key of `model`. It could be a path of the property (e.g `a.b.0` or `['a', 'b', '0']`). In the use of `validate` and `resetFields` method, the attribute is required.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string",
+                "string&#91;&#93;"
+              ]
+            },
+            {
+              "name": "label",
+              "description": "Label text.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "label-width",
+              "description": "Width of label, e.g. `'50px'`. `'auto'` is supported.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "required",
+              "description": "Whether the field is required or not, will be determined by validation rules if omitted.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "boolean"
+              ]
+            },
+            {
+              "name": "rules",
+              "description": "Validation rules of form, see the [following table](#formitemrule), more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                {
+                  "name": "Arrayable<FormItemRule>",
+                  "source": {
+                    "symbol": "Arrayable"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "error",
+              "description": "Field error message, set its value and the field will validate error and show this message immediately.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "show-message",
+              "description": "Whether to show the error message.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "inline-message",
+              "description": "Inline style validate message.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string",
+                "boolean"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "size",
+              "description": "Control the size of components in this form-item.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "'' | 'large' | 'default' | 'small'"
+              ]
+            },
+            {
+              "name": "for",
+              "description": "Same as for in native label.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "validate-status",
+              "description": "Validation state of formItem.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "'' | 'error' | 'validating' | 'success'"
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Content of Form Item.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-slots"
+            },
+            {
+              "name": "label",
+              "description": "Custom content to display on label.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-slots",
+              "type": "{ label: string }"
+            },
+            {
+              "name": "error",
+              "description": "Custom content to display validation message.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-slots",
+              "type": "{ error: string }"
+            }
+          ]
+        },
+        {
+          "name": "form-table-container",
+          "source": {
+            "symbol": "FormTableContainer"
+          },
+          "description": "将el-table和el-form结合起来的组件，形成带有搜索/编辑的表格的组件",
+          "props": [
+            {
+              "name": "gutter",
+              "description": "el-row中的gutter",
+              "type": [
+                "number"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "type",
+              "description": "组件类型, 分为编辑表格和默认表格",
+              "default": "default",
+              "type": [
+                "'default'",
+                "'edit'"
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "默认插槽，只接受FormTableSearchItem，FormTableItem，el-form-item，el-table-column组件"
+            },
+            {
+              "name": "table",
+              "description": "el-table的放置位置，当然也可以放置除了el-table之外其他的内容"
+            },
+            {
+              "name": "form",
+              "description": "el-form的放置位置，当然也可以放置除了el-form之外其他的内容"
+            }
+          ]
+        },
+        {
+          "name": "table-edit-column",
+          "source": {
+            "symbol": "TableEditColumn"
+          },
+          "description": "编辑表格中的列",
+          "props": [
+            {
+              "name": "hide-required-asterisk",
+              "description": "是否隐藏必填的*号",
+              "type": [
+                "boolean"
+              ]
+            },
+            {
+              "name": "value-type",
+              "description": "rules 中的type",
+              "type": [
+                "'string'",
+                "'number'",
+                "'array'",
+                "'object'",
+                "'boolean'",
+                "'date'"
+              ]
+            },
+            {
+              "name": "pattern",
+              "description": "rules 中的pattern",
+              "type": [
+                "RegExp"
+              ]
+            },
+            {
+              "name": "trigger",
+              "description": "rules 中的trigger",
+              "type": [
+                "'change'",
+                "'blur'"
+              ]
+            },
+            {
+              "name": "message",
+              "description": "rules 中的message",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "label-width",
+              "description": "Width of label, e.g. `'50px'`. `'auto'` is supported.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "required",
+              "description": "Whether the field is required or not, will be determined by validation rules if omitted.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "boolean"
+              ]
+            },
+            {
+              "name": "rules",
+              "description": "Validation rules of form, see the [following table](#formitemrule), more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                {
+                  "name": "Arrayable<FormItemRule>",
+                  "source": {
+                    "symbol": "Arrayable"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "error",
+              "description": "Field error message, set its value and the field will validate error and show this message immediately.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "show-message",
+              "description": "Whether to show the error message.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "inline-message",
+              "description": "Inline style validate message.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string",
+                "boolean"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "size",
+              "description": "Control the size of components in this form-item.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "'' | 'large' | 'default' | 'small'"
+              ]
+            },
+            {
+              "name": "for",
+              "description": "Same as for in native label.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "validate-status",
+              "description": "Validation state of formItem.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "'' | 'error' | 'validating' | 'success'"
+              ]
+            },
+            {
+              "name": "type",
+              "description": "type of the column. If set to `selection`, the column will display checkbox. If set to `index`, the column will display index of the row (staring from 1). If set to `expand`, the column will display expand icon",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'default' | 'selection' | 'index' | 'expand'"
+              ],
+              "default": "default"
+            },
+            {
+              "name": "index",
+              "description": "customize indices for each row, works on columns with `type=index`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "number",
+                "(index: number) => number"
+              ]
+            },
+            {
+              "name": "label",
+              "description": "column label",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "column-key",
+              "description": "column's key. If you need to use the filter-change event, you need this attribute to identify which column is being filtered",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "prop",
+              "description": "field name. You can also use its alias: `property`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "width",
+              "description": "column width",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "min-width",
+              "description": "column minimum width. Columns with `width` has a fixed width, while columns with `min-width` has a width that is distributed in proportion",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "fixed",
+              "description": "whether column is fixed at left / right. Will be fixed at left if `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'right'",
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "render-header",
+              "description": "render function for table header of this column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(data: { column: TableColumnCtx<T>, $index: number }) => void"
+              ]
+            },
+            {
+              "name": "sortable",
+              "description": "whether column can be sorted. Remote sorting can be done by setting this attribute to 'custom' and listening to the `sort-change` event of Table",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean",
+                "string"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "sort-method",
+              "description": "sorting method, works when `sortable` is `true`. Should return a number, just like Array.sort",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                {
+                  "name": "<T = any>(a: T, b: T) => number",
+                  "source": {
+                    "symbol": "<T = any>(a: T, b: T) => number"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "sort-by",
+              "description": "specify which property to sort by, works when `sortable` is `true` and `sort-method` is `undefined`. If set to an Array, the column will sequentially sort by the next property if the previous one is equal",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, index: number) => string",
+                "string",
+                "string[]"
+              ]
+            },
+            {
+              "name": "sort-orders",
+              "description": "the order of the sorting strategies used when sorting the data, works when `sortable` is `true`. Accepts an array, as the user clicks on the header, the column is sorted in order of the elements in the array",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "[]"
+              ],
+              "default": "['ascending', 'descending', null]"
+            },
+            {
+              "name": "resizable",
+              "description": "whether column width can be resized, works when `border` of `el-table` is `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "formatter",
+              "description": "function that formats cell content",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, column: TableColumnCtx<T>, cellValue: any, index: number) => VNode",
+                "string"
+              ]
+            },
+            {
+              "name": "show-overflow-tooltip",
+              "description": "whether to hide extra content and show them in a tooltip when hovering on the cell",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "align",
+              "description": "alignment",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'center' | 'right'"
+              ],
+              "default": "left"
+            },
+            {
+              "name": "header-align",
+              "description": "alignment of the table header. If omitted, the value of the above `align` attribute will be applied",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'center' | 'right'"
+              ],
+              "default": "left"
+            },
+            {
+              "name": "class-name",
+              "description": "class name of cells in the column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "label-class-name",
+              "description": "class name of the label of this column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "selectable",
+              "description": "function that determines if a certain row can be selected, works when `type` is 'selection'",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, index: number) => boolean"
+              ]
+            },
+            {
+              "name": "reserve-selection",
+              "description": "whether to reserve selection after data refreshing, works when `type` is 'selection'. Note that `row-key` is required for this to work",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "filters",
+              "description": "an array of data filtering options. For each element in this array, `text` and `value` are required",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "Array<{text: string, value: string}>"
+              ]
+            },
+            {
+              "name": "filter-placement",
+              "description": "placement for the filter dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'"
+              ]
+            },
+            {
+              "name": "filter-class-name",
+              "description": "className for the filter dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "filter-multiple",
+              "description": "whether data filtering supports multiple options",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "filter-method",
+              "description": "data filtering method. If `filter-multiple` is on, this method will be called multiple times for each row, and a row will display if one of the calls returns `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(value: any, row: any, column: TableColumnCtx<T>) => void"
+              ]
+            },
+            {
+              "name": "filtered-value",
+              "description": "filter value for selected data, might be useful when table header is rendered with `render-header`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string[]"
+              ]
+            },
+            {
+              "name": "tooltip-formatter",
+              "description": "customize tooltip content when using `show-overflow-tooltip`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(data: { row: any, column: TableColumnCtx<T>, cellValue: any }) => VNode",
+                "string"
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Custom content for table columns",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-slots",
+              "type": "{ row: any, column: TableColumnCtx<T>, index: number, formData: any, cellValue: any }"
+            },
+            {
+              "name": "header",
+              "description": "Custom content for table header",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-slots",
+              "type": "{ column: TableColumnCtx<T>, index: number }"
+            },
+            {
+              "name": "filter-icon",
+              "description": "Custom content for filter icon",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-slots",
+              "type": "{ filterOpened: boolean }"
+            },
+            {
+              "name": "expand",
+              "description": "Custom content for expand columns",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-slots",
+              "type": "{ expanded: boolean }"
+            }
+          ]
+        },
+        {
+          "name": "table-edit-column-action",
+          "source": {
+            "symbol": "TableEditColumnAction"
+          },
+          "description": "编辑表格中的操作列",
+          "props": [
+            {
+              "name": "edit-callback",
+              "description": "编辑操作的回调函数，接收「打开加载」和「关闭加载」两个函数作为参数",
+              "type": [
+                "function"
+              ],
+              "required": false,
+              "parameters": [
+                {
+                  "name": "openLoading",
+                  "type": [
+                    "function"
+                  ],
+                  "description": "用于触发「加载中」状态的函数"
+                },
+                {
+                  "name": "closeLoading",
+                  "type": [
+                    "function"
+                  ],
+                  "description": "用于关闭「加载中」状态的函数"
+                },
+                {
+                  "name": "row",
+                  "type": [
+                    "any"
+                  ],
+                  "description": "formData中的行"
+                },
+                {
+                  "name": "index",
+                  "type": [
+                    "number"
+                  ],
+                  "description": "当前行的下标"
+                }
+              ]
+            },
+            {
+              "name": "delete-callback",
+              "description": "删除操作的回调函数，接收「打开加载」和「关闭加载」两个函数作为参数",
+              "type": [
+                "function"
+              ],
+              "required": false,
+              "parameters": [
+                {
+                  "name": "openLoading",
+                  "type": [
+                    "function"
+                  ],
+                  "description": "用于触发「加载中」状态的函数"
+                },
+                {
+                  "name": "closeLoading",
+                  "type": [
+                    "function"
+                  ],
+                  "description": "用于关闭「加载中」状态的函数"
+                },
+                {
+                  "name": "row",
+                  "type": [
+                    "any"
+                  ],
+                  "description": "formData中的行"
+                },
+                {
+                  "name": "index",
+                  "type": [
+                    "number"
+                  ],
+                  "description": "当前行的下标"
+                }
+              ]
+            },
+            {
+              "name": "cancel-callback",
+              "description": "取消操作的回调函数，接收「打开加载」和「关闭加载」两个函数作为参数",
+              "type": [
+                "function"
+              ],
+              "required": false,
+              "parameters": [
+                {
+                  "name": "openLoading",
+                  "type": [
+                    "function"
+                  ],
+                  "description": "用于触发「加载中」状态的函数"
+                },
+                {
+                  "name": "closeLoading",
+                  "type": [
+                    "function"
+                  ],
+                  "description": "用于关闭「加载中」状态的函数"
+                },
+                {
+                  "name": "row",
+                  "type": [
+                    "any"
+                  ],
+                  "description": "formData中的行"
+                },
+                {
+                  "name": "index",
+                  "type": [
+                    "number"
+                  ],
+                  "description": "当前行的下标"
+                }
+              ]
+            },
+            {
+              "name": "is-hidden-edit-btn",
+              "description": "是否隐藏「编辑」按钮",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "is-hidden-delete-btn",
+              "description": "是否隐藏「删除」按钮",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "is-hidden-cancel-btn",
+              "description": "是否隐藏「取消」按钮",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "confirm-text",
+              "description": "「确认」按钮的文本内容",
+              "type": [
+                "string"
+              ],
+              "required": false
+            },
+            {
+              "name": "cancel-text",
+              "description": "「取消」按钮的文本内容",
+              "type": [
+                "string"
+              ],
+              "required": false
+            },
+            {
+              "name": "edit-text",
+              "description": "「编辑」按钮的文本内容",
+              "type": [
+                "string"
+              ],
+              "required": false
+            },
+            {
+              "name": "delete-text",
+              "description": "「删除」按钮的文本内容",
+              "type": [
+                "string"
+              ],
+              "required": false
+            },
+            {
+              "name": "btn-is-text",
+              "description": "按钮是否为「纯文本样式」（非按钮组件，仅文字）",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "label",
+              "description": "column label",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "column-key",
+              "description": "column's key. If you need to use the filter-change event, you need this attribute to identify which column is being filtered",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "width",
+              "description": "column width",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "min-width",
+              "description": "column minimum width. Columns with `width` has a fixed width, while columns with `min-width` has a width that is distributed in proportion",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "fixed",
+              "description": "whether column is fixed at left / right. Will be fixed at left if `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'right'",
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "render-header",
+              "description": "render function for table header of this column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(data: { column: TableColumnCtx<T>, $index: number }) => void"
+              ]
+            },
+            {
+              "name": "sortable",
+              "description": "whether column can be sorted. Remote sorting can be done by setting this attribute to 'custom' and listening to the `sort-change` event of Table",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean",
+                "string"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "sort-method",
+              "description": "sorting method, works when `sortable` is `true`. Should return a number, just like Array.sort",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                {
+                  "name": "<T = any>(a: T, b: T) => number",
+                  "source": {
+                    "symbol": "<T = any>(a: T, b: T) => number"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "sort-by",
+              "description": "specify which property to sort by, works when `sortable` is `true` and `sort-method` is `undefined`. If set to an Array, the column will sequentially sort by the next property if the previous one is equal",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, index: number) => string",
+                "string",
+                "string[]"
+              ]
+            },
+            {
+              "name": "sort-orders",
+              "description": "the order of the sorting strategies used when sorting the data, works when `sortable` is `true`. Accepts an array, as the user clicks on the header, the column is sorted in order of the elements in the array",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "[]"
+              ],
+              "default": "['ascending', 'descending', null]"
+            },
+            {
+              "name": "resizable",
+              "description": "whether column width can be resized, works when `border` of `el-table` is `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "formatter",
+              "description": "function that formats cell content",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, column: TableColumnCtx<T>, cellValue: any, index: number) => VNode",
+                "string"
+              ]
+            },
+            {
+              "name": "show-overflow-tooltip",
+              "description": "whether to hide extra content and show them in a tooltip when hovering on the cell",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "align",
+              "description": "alignment",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'center' | 'right'"
+              ],
+              "default": "left"
+            },
+            {
+              "name": "header-align",
+              "description": "alignment of the table header. If omitted, the value of the above `align` attribute will be applied",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'center' | 'right'"
+              ],
+              "default": "left"
+            },
+            {
+              "name": "class-name",
+              "description": "class name of cells in the column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "label-class-name",
+              "description": "class name of the label of this column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "selectable",
+              "description": "function that determines if a certain row can be selected, works when `type` is 'selection'",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, index: number) => boolean"
+              ]
+            },
+            {
+              "name": "reserve-selection",
+              "description": "whether to reserve selection after data refreshing, works when `type` is 'selection'. Note that `row-key` is required for this to work",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "filters",
+              "description": "an array of data filtering options. For each element in this array, `text` and `value` are required",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "Array<{text: string, value: string}>"
+              ]
+            },
+            {
+              "name": "filter-placement",
+              "description": "placement for the filter dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'"
+              ]
+            },
+            {
+              "name": "filter-class-name",
+              "description": "className for the filter dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "filter-multiple",
+              "description": "whether data filtering supports multiple options",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "filter-method",
+              "description": "data filtering method. If `filter-multiple` is on, this method will be called multiple times for each row, and a row will display if one of the calls returns `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(value: any, row: any, column: TableColumnCtx<T>) => void"
+              ]
+            },
+            {
+              "name": "filtered-value",
+              "description": "filter value for selected data, might be useful when table header is rendered with `render-header`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string[]"
+              ]
+            },
+            {
+              "name": "tooltip-formatter",
+              "description": "customize tooltip content when using `show-overflow-tooltip`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(data: { row: any, column: TableColumnCtx<T>, cellValue: any }) => VNode",
+                "string"
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "header",
+              "description": "Custom content for table header",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-slots",
+              "type": "{ column: TableColumnCtx<T>, index: number }"
+            },
+            {
+              "name": "other-actions",
+              "description": "其他操作",
+              "type": "{ row: any, column: TableColumnCtx<T>, index: number }"
+            }
+          ]
+        },
+        {
+          "name": "form-table-item",
+          "source": {
+            "symbol": "FormTableItem"
+          },
+          "description": "用于放置在form-table-container的默认插槽中，用于同时声明table中的列和表单项，相当于是el-col、form-item、el-table-column的结合",
+          "props": [
+            {
+              "name": "span",
+              "description": "number of column the grid spans",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number"
+              ],
+              "default": "24"
+            },
+            {
+              "name": "offset",
+              "description": "number of spacing on the left side of the grid",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "push",
+              "description": "number of columns that grid moves to the right",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "pull",
+              "description": "number of columns that grid moves to the left",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "xs",
+              "description": "`<768px` Responsive columns or column props object",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number",
+                "{span?: number, offset?: number, pull?: number, push?: number}"
+              ]
+            },
+            {
+              "name": "sm",
+              "description": "`≥768px` Responsive columns or column props object",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number",
+                "{span?: number, offset?: number, pull?: number, push?: number}"
+              ]
+            },
+            {
+              "name": "md",
+              "description": "`≥992px` Responsive columns or column props object",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number",
+                "{span?: number, offset?: number, pull?: number, push?: number}"
+              ]
+            },
+            {
+              "name": "lg",
+              "description": "`≥1200px` Responsive columns or column props object",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number",
+                "{span?: number, offset?: number, pull?: number, push?: number}"
+              ]
+            },
+            {
+              "name": "xl",
+              "description": "`≥1920px` Responsive columns or column props object",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "number",
+                "{span?: number, offset?: number, pull?: number, push?: number}"
+              ]
+            },
+            {
+              "name": "tag",
+              "description": "custom element tag",
+              "doc-url": "https://element-plus.org/en-US/component/layout.html#col-attributes",
+              "type": [
+                "string"
+              ],
+              "default": "div"
+            },
+            {
+              "name": "hidden-table-column",
+              "description": "是否隐藏table的列",
+              "type": [
+                "boolean"
+              ]
+            },
+            {
+              "name": "value-type",
+              "description": "rules 中的type",
+              "type": [
+                "'string'",
+                "'number'",
+                "'array'",
+                "'object'",
+                "'boolean'",
+                "'date'"
+              ]
+            },
+            {
+              "name": "pattern",
+              "description": "rules 中的pattern",
+              "type": [
+                "RegExp"
+              ]
+            },
+            {
+              "name": "trigger",
+              "description": "rules 中的trigger",
+              "type": [
+                "'change'",
+                "'blur'"
+              ]
+            },
+            {
+              "name": "message",
+              "description": "rules 中的message",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "label-width",
+              "description": "Width of label, e.g. `'50px'`. `'auto'` is supported.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "required",
+              "description": "Whether the field is required or not, will be determined by validation rules if omitted.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "boolean"
+              ]
+            },
+            {
+              "name": "rules",
+              "description": "Validation rules of form, see the [following table](#formitemrule), more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                {
+                  "name": "Arrayable<FormItemRule>",
+                  "source": {
+                    "symbol": "Arrayable"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "error",
+              "description": "Field error message, set its value and the field will validate error and show this message immediately.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "show-message",
+              "description": "Whether to show the error message.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "inline-message",
+              "description": "Inline style validate message.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string",
+                "boolean"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "size",
+              "description": "Control the size of components in this form-item.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "'' | 'large' | 'default' | 'small'"
+              ]
+            },
+            {
+              "name": "for",
+              "description": "Same as for in native label.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "validate-status",
+              "description": "Validation state of formItem.",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-attributes",
+              "type": [
+                "'' | 'error' | 'validating' | 'success'"
+              ]
+            },
+            {
+              "name": "type",
+              "description": "type of the column. If set to `selection`, the column will display checkbox. If set to `index`, the column will display index of the row (staring from 1). If set to `expand`, the column will display expand icon",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'default' | 'selection' | 'index' | 'expand'"
+              ],
+              "default": "default"
+            },
+            {
+              "name": "index",
+              "description": "customize indices for each row, works on columns with `type=index`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "number",
+                "(index: number) => number"
+              ]
+            },
+            {
+              "name": "label",
+              "description": "column label",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "column-key",
+              "description": "column's key. If you need to use the filter-change event, you need this attribute to identify which column is being filtered",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "prop",
+              "description": "field name. You can also use its alias: `property`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "width",
+              "description": "column width",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "min-width",
+              "description": "column minimum width. Columns with `width` has a fixed width, while columns with `min-width` has a width that is distributed in proportion",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "fixed",
+              "description": "whether column is fixed at left / right. Will be fixed at left if `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'right'",
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "render-header",
+              "description": "render function for table header of this column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(data: { column: TableColumnCtx<T>, $index: number }) => void"
+              ]
+            },
+            {
+              "name": "sortable",
+              "description": "whether column can be sorted. Remote sorting can be done by setting this attribute to 'custom' and listening to the `sort-change` event of Table",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean",
+                "string"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "sort-method",
+              "description": "sorting method, works when `sortable` is `true`. Should return a number, just like Array.sort",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                {
+                  "name": "<T = any>(a: T, b: T) => number",
+                  "source": {
+                    "symbol": "<T = any>(a: T, b: T) => number"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "sort-by",
+              "description": "specify which property to sort by, works when `sortable` is `true` and `sort-method` is `undefined`. If set to an Array, the column will sequentially sort by the next property if the previous one is equal",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, index: number) => string",
+                "string",
+                "string[]"
+              ]
+            },
+            {
+              "name": "sort-orders",
+              "description": "the order of the sorting strategies used when sorting the data, works when `sortable` is `true`. Accepts an array, as the user clicks on the header, the column is sorted in order of the elements in the array",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "[]"
+              ],
+              "default": "['ascending', 'descending', null]"
+            },
+            {
+              "name": "resizable",
+              "description": "whether column width can be resized, works when `border` of `el-table` is `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "formatter",
+              "description": "function that formats cell content",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, column: TableColumnCtx<T>, cellValue: any, index: number) => VNode",
+                "string"
+              ]
+            },
+            {
+              "name": "show-overflow-tooltip",
+              "description": "whether to hide extra content and show them in a tooltip when hovering on the cell",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "align",
+              "description": "alignment",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'center' | 'right'"
+              ],
+              "default": "left"
+            },
+            {
+              "name": "header-align",
+              "description": "alignment of the table header. If omitted, the value of the above `align` attribute will be applied",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'left' | 'center' | 'right'"
+              ],
+              "default": "left"
+            },
+            {
+              "name": "class-name",
+              "description": "class name of cells in the column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "label-class-name",
+              "description": "class name of the label of this column",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "selectable",
+              "description": "function that determines if a certain row can be selected, works when `type` is 'selection'",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(row: any, index: number) => boolean"
+              ]
+            },
+            {
+              "name": "reserve-selection",
+              "description": "whether to reserve selection after data refreshing, works when `type` is 'selection'. Note that `row-key` is required for this to work",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "filters",
+              "description": "an array of data filtering options. For each element in this array, `text` and `value` are required",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "Array<{text: string, value: string}>"
+              ]
+            },
+            {
+              "name": "filter-placement",
+              "description": "placement for the filter dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'"
+              ]
+            },
+            {
+              "name": "filter-class-name",
+              "description": "className for the filter dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "filter-multiple",
+              "description": "whether data filtering supports multiple options",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "filter-method",
+              "description": "data filtering method. If `filter-multiple` is on, this method will be called multiple times for each row, and a row will display if one of the calls returns `true`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(value: any, row: any, column: TableColumnCtx<T>) => void"
+              ]
+            },
+            {
+              "name": "filtered-value",
+              "description": "filter value for selected data, might be useful when table header is rendered with `render-header`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "string[]"
+              ]
+            },
+            {
+              "name": "tooltip-formatter",
+              "description": "customize tooltip content when using `show-overflow-tooltip`",
+              "doc-url": "https://element-plus.org/en-US/component/table.html#table-column-attributes",
+              "type": [
+                "(data: { row: any, column: TableColumnCtx<T>, cellValue: any }) => VNode",
+                "string"
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "el-form-item中的default插槽"
+            },
+            {
+              "name": "formItemLabel",
+              "description": "el-form-item中的label插槽",
+              "type": "{ label: string }"
+            },
+            {
+              "name": "formItemError",
+              "description": "el-form-item中的error插槽",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-slots",
+              "type": "{ error: string }"
+            },
+            {
+              "name": "table",
+              "description": "el-table-column中的插槽",
+              "doc-url": "https://element-plus.org/en-US/component/form.html#formitem-slots",
+              "type": "{ row: any, column: TableColumnCtx<T>, $index: number }"
+            }
+          ]
+        },
+        {
+          "name": "form-table-search-item",
+          "source": {
+            "symbol": "FormTableSearchItem"
+          },
+          "description": "用于搜索表单的搜索、重置功能",
+          "props": [
+            {
+              "name": "search-text",
+              "description": "搜索按钮的文本内容",
+              "type": [
+                "string"
+              ],
+              "required": false,
+              "default": "搜索"
+            },
+            {
+              "name": "reset-text",
+              "description": "重置按钮的文本内容",
+              "type": [
+                "string"
+              ],
+              "required": false,
+              "default": "重置"
+            },
+            {
+              "name": "margin-top",
+              "description": "组件的顶部外边距",
+              "type": [
+                "string"
+              ],
+              "required": false
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "search",
+                "description": "点击搜索按钮时触发的事件",
+                "parameters": [
+                  {
+                    "name": "openLoading",
+                    "type": [
+                      "function"
+                    ],
+                    "description": "用于触发「加载中」状态的函数"
+                  },
+                  {
+                    "name": "closeLoading",
+                    "type": [
+                      "function"
+                    ],
+                    "description": "用于关闭「加载中」状态的函数"
+                  }
+                ]
+              },
+              {
+                "name": "reset",
+                "description": "点击重置按钮时触发的事件",
+                "parameters": [
+                  {
+                    "name": "openLoading",
+                    "type": [
+                      "function"
+                    ],
+                    "description": "用于触发「加载中」状态的函数"
+                  },
+                  {
+                    "name": "closeLoading",
+                    "type": [
+                      "function"
+                    ],
+                    "description": "用于关闭「加载中」状态的函数"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "load-list",
+          "source": {
+            "symbol": "LoadList"
+          },
+          "description": "带有分页的加载列表的功能",
+          "props": [
+            {
+              "name": "load",
+              "description": "数据加载函数，接收页码、页大小、总条数，返回包含数据的 Promise",
+              "type": [
+                "function"
+              ],
+              "required": true,
+              "parameters": [
+                {
+                  "name": "page",
+                  "type": [
+                    "number"
+                  ],
+                  "description": "当前页码"
+                },
+                {
+                  "name": "pageSize",
+                  "type": [
+                    "number"
+                  ],
+                  "description": "每页条数"
+                },
+                {
+                  "name": "total",
+                  "type": [
+                    "number"
+                  ],
+                  "description": "总数据条数"
+                }
+              ],
+              "return": {
+                "type": [
+                  "Promise"
+                ],
+                "description": "解析后包含数据的对象"
+              }
+            },
+            {
+              "name": "error-text",
+              "description": "错误状态时显示的文本",
+              "type": [
+                "string"
+              ],
+              "required": false
+            },
+            {
+              "name": "pagination-background",
+              "description": "el-pagination的background属性",
+              "type": [
+                "boolean"
+              ],
+              "required": false,
+              "default": "true"
+            },
+            {
+              "name": "pagination-size",
+              "description": "el-pagination的size属性",
+              "type": [
+                "'large'",
+                "'small'",
+                "'default'"
+              ],
+              "required": false,
+              "default": "default"
+            },
+            {
+              "name": "pagination-layout",
+              "description": "el-pagination的layout属性",
+              "type": [
+                "string"
+              ],
+              "required": false,
+              "default": "total, sizes, prev, pager, next, jumper"
+            },
+            {
+              "name": "empty-text",
+              "description": "数据为空时显示的文本",
+              "type": [
+                "string"
+              ],
+              "required": false
+            },
+            {
+              "name": "is-auto-load",
+              "description": "是否自动加载数据",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "pagination-align",
+              "description": "分页器对齐方式，可选 'start'、'center'、'end'",
+              "type": [
+                "'start'",
+                "'center'",
+                "'end'"
+              ],
+              "required": false
+            },
+            {
+              "name": "hide-on-single-page",
+              "description": "只有一页时是否隐藏分页器",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "disable-scroll-top",
+              "description": "是否禁用滚动到顶部的行为",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "hide-default-empty-or-error-handle",
+              "description": "隐藏默认的空数据或错误时的处理逻辑",
+              "type": [
+                "boolean"
+              ],
+              "required": false
+            },
+            {
+              "name": "scroll-container",
+              "description": "滚动容器的引用",
+              "type": [
+                "any"
+              ],
+              "required": false
+            },
+            {
+              "name": "page-config",
+              "description": "分页配置，包含 list 和 total 字段的键名映射",
+              "type": [
+                "object"
+              ],
+              "required": false,
+              "properties": [
+                {
+                  "name": "list",
+                  "description": "数据列表在返回结果中的键名",
+                  "type": [
+                    "string"
+                  ]
+                },
+                {
+                  "name": "total",
+                  "description": "总条数在返回结果中的键名",
+                  "type": [
+                    "string"
+                  ]
+                }
+              ]
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "loaded",
+                "description": "数据加载完成后触发的事件",
+                "parameters": [
+                  {
+                    "name": "pagerData",
+                    "type": [
+                      "object"
+                    ],
+                    "properties": [
+                      {
+                        "name": "list",
+                        "description": "加载的数据列表",
+                        "type": [
+                          "any[]"
+                        ]
+                      },
+                      {
+                        "name": "page",
+                        "description": "当前页码",
+                        "type": [
+                          "number"
+                        ]
+                      },
+                      {
+                        "name": "pageSize",
+                        "description": "每页条数",
+                        "type": [
+                          "number"
+                        ]
+                      },
+                      {
+                        "name": "total",
+                        "description": "总数据条数",
+                        "type": [
+                          "number"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "exposed": [
+              {
+                "name": "refresh",
+                "description": "刷新列表方法",
+                "parameters": [
+                  {
+                    "name": "isForce",
+                    "description": "是否强制刷新列表",
+                    "type": [
+                      "boolean"
+                    ]
+                  },
+                  {
+                    "name": "isScrollTop",
+                    "description": "是否滚动到顶部方法",
+                    "type": [
+                      "boolean"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "scrollToTop",
+                "description": "滚动到顶部"
+              },
+              {
+                "name": "refreshOfDelete",
+                "description": "删除时调用的刷新列表的方法",
+                "parameters": [
+                  {
+                    "name": "delCount",
+                    "description": "删除的数量，默认为1",
+                    "type": [
+                      "number"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "select-data",
+          "source": {
+            "symbol": "SelectData"
+          },
+          "description": "el-select选择框二次封装版本",
+          "props": [
+            {
+              "name": "model-value",
+              "description": "binding value",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "object",
+                "array"
+              ]
+            },
+            {
+              "name": "selected",
+              "description": "可以结合v-model:selected使用，当前选中的modelValue所对应的对象",
+              "type": [
+                "object"
+              ]
+            },
+            {
+              "name": "labelKey",
+              "description": "label的键名",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "valueKey",
+              "description": "value的键名",
+              "type": [
+                "object"
+              ]
+            },
+            {
+              "name": "multiple",
+              "description": "whether multiple-select is activated",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "options",
+              "description": "data of the options, the key of `value` and `label` and `disabled` can be customize by `props`",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "Array<{[key: string]: any}>",
+                "Function"
+              ]
+            },
+            {
+              "name": "[props]",
+              "description": "configuration options",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "object"
+              ]
+            },
+            {
+              "name": "disabled",
+              "description": "whether Select is disabled",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "value-key",
+              "description": "unique identity key name for value, required when value is an object",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ],
+              "default": "value"
+            },
+            {
+              "name": "size",
+              "description": "size of Input",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "'' | 'large' | 'default' | 'small'"
+              ]
+            },
+            {
+              "name": "clearable",
+              "description": "whether select can be cleared",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "collapse-tags",
+              "description": "whether to collapse tags to a text when multiple selecting",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "collapse-tags-tooltip",
+              "description": "whether show all selected tags when mouse hover text of collapse-tags. To use this, `collapse-tags` must be true",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "multiple-limit",
+              "description": "maximum number of options user can select when `multiple` is `true`. No limit when set to 0",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "number"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "id",
+              "description": "native input id input",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "name",
+              "description": "the name attribute of select input",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "effect",
+              "description": "tooltip theme, built-in theme: `dark` / `light`",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "'dark' | 'light'",
+                "string"
+              ],
+              "default": "light"
+            },
+            {
+              "name": "autocomplete",
+              "description": "the autocomplete attribute of select input",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ],
+              "default": "off"
+            },
+            {
+              "name": "placeholder",
+              "description": "placeholder, default is 'Select'",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "filterable",
+              "description": "whether Select is filterable",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "allow-create",
+              "description": "whether creating new items is allowed. To use this, `filterable` must be true",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "filter-method",
+              "description": "custom filter method, the first parameter is the current input value. To use this, `filterable` must be true",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "(query: string) => void"
+              ]
+            },
+            {
+              "name": "remote",
+              "description": "whether options are loaded from server",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "remote-method",
+              "description": "function that gets called when the input value changes. Its parameter is the current input value. To use this, `filterable` must be true",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "(query: string) => void"
+              ]
+            },
+            {
+              "name": "remote-show-suffix",
+              "description": "in remote search method show suffix icon",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "loading",
+              "description": "whether Select is loading data from server",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "loading-text",
+              "description": "displayed text while loading data from server, default is 'Loading'",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "no-match-text",
+              "description": "displayed text when no data matches the filtering query, you can also use slot `empty`, default is 'No matching data'",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "no-data-text",
+              "description": "displayed text when there is no options, you can also use slot `empty`, default is 'No data'",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "popper-class",
+              "description": "custom class name for Select's dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ],
+              "default": "''"
+            },
+            {
+              "name": "popper-style",
+              "description": "custom style for Select's dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string",
+                "object"
+              ]
+            },
+            {
+              "name": "reserve-keyword",
+              "description": "when `multiple` and `filterable` is true, whether to reserve current keyword after selecting an option",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "default-first-option",
+              "description": "select first matching option on enter key. Use with `filterable` or `remote`",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "teleported",
+              "description": "whether select dropdown is teleported, if `true` it will be teleported to where `append-to` sets",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "append-to",
+              "description": "which element the select dropdown appends to",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                {
+                  "name": "CSSSelector",
+                  "source": {
+                    "symbol": "CSSSelector"
+                  }
+                },
+                "HTMLElement"
+              ]
+            },
+            {
+              "name": "persistent",
+              "description": "when select dropdown is inactive and `persistent` is `false`, select dropdown will be destroyed",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "automatic-dropdown",
+              "description": "for non-filterable Select, this prop decides if the option menu pops up when the input is focused",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "clear-icon",
+              "description": "custom clear icon component",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string",
+                {
+                  "name": "Component",
+                  "source": {
+                    "symbol": "Component",
+                    "module": "vue"
+                  }
+                }
+              ],
+              "default": "CircleClose"
+            },
+            {
+              "name": "fit-input-width",
+              "description": "whether the width of the dropdown is the same as the input",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "suffix-icon",
+              "description": "custom suffix icon component",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string",
+                {
+                  "name": "Component",
+                  "source": {
+                    "symbol": "Component",
+                    "module": "vue"
+                  }
+                }
+              ],
+              "default": "ArrowDown"
+            },
+            {
+              "name": "tag-type",
+              "description": "tag type",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "'' | 'success' | 'info' | 'warning' | 'danger'"
+              ],
+              "default": "info"
+            },
+            {
+              "name": "tag-effect",
+              "description": "tag effect",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "'' | 'light' | 'dark' | 'plain'"
+              ],
+              "default": "light"
+            },
+            {
+              "name": "validate-event",
+              "description": "whether to trigger form validation",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "offset",
+              "description": "offset of the dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "number"
+              ],
+              "default": "12"
+            },
+            {
+              "name": "show-arrow",
+              "description": "whether the dropdown has an arrow",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "placement",
+              "description": "position of dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'"
+              ],
+              "default": "bottom-start"
+            },
+            {
+              "name": "fallback-placements",
+              "description": "list of possible positions for dropdown [popper.js](https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements)",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                {
+                  "name": "Placement[]",
+                  "source": {
+                    "symbol": "Placement"
+                  }
+                }
+              ],
+              "default": "['bottom-start', 'top-start', 'right', 'left']"
+            },
+            {
+              "name": "max-collapse-tags",
+              "description": "the max tags number to be shown. To use this, `collapse-tags` must be true",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "number"
+              ],
+              "default": "1"
+            },
+            {
+              "name": "popper-options",
+              "description": "[popper.js](https://popper.js.org/docs/v2/) parameters",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                {
+                  "name": "objectrefer to  doc",
+                  "source": {
+                    "symbol": "objectrefer to  doc"
+                  }
+                }
+              ],
+              "default": "{}"
+            },
+            {
+              "name": "aria-label",
+              "description": "same as `aria-label` in native input",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "empty-values",
+              "description": "empty values of component, [see config-provider](https://element-plus.org/en-US/component/config-provider#empty-values-configurations)",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "array"
+              ]
+            },
+            {
+              "name": "value-on-clear",
+              "description": "clear return value, [see config-provider](https://element-plus.org/en-US/component/config-provider#empty-values-configurations)",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "Function"
+              ]
+            },
+            {
+              "name": "suffix-transition",
+              "description": "animation when dropdown appears/disappears icon",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "tabindex",
+              "description": "tabindex for input",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string",
+                "number"
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "option component list",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            },
+            {
+              "name": "header",
+              "description": "content at the top of the dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            },
+            {
+              "name": "footer",
+              "description": "content at the bottom of the dropdown",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            },
+            {
+              "name": "prefix",
+              "description": "content as Select prefix",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            },
+            {
+              "name": "empty",
+              "description": "content when there is no options",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            },
+            {
+              "name": "tag",
+              "description": "content as Select tag, subTags `data`, `selectDisabled` and `deleteTag` introduced in",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            },
+            {
+              "name": "loading",
+              "description": "content as Select loading",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            },
+            {
+              "name": "label",
+              "description": "content as Select label. `index` introduced in",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-slots"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "change",
+                "description": "triggers when the selected value changes",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
+              {
+                "name": "visible-change",
+                "description": "triggers when the dropdown appears/disappears",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
+              {
+                "name": "remove-tag",
+                "description": "triggers when a tag is removed in multiple mode",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
+              {
+                "name": "clear",
+                "description": "triggers when the clear icon is clicked in a clearable Select",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
+              {
+                "name": "blur",
+                "description": "triggers when Input blurs",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
+              {
+                "name": "focus",
+                "description": "triggers when Input focuses",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
+              {
+                "name": "popup-scroll",
+                "description": "triggers when dropdown scrolls",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
+              {
+                "name": "update:selected",
+                "description": "用于v-model:selected的事件"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sugar-button",
+          "source": {
+            "symbol": "SugarButton"
+          },
+          "description": "el-button的二次封装版本",
+          "props": [
+            {
+              "name": "auto-loading",
+              "type": [
+                "boolean"
+              ],
+              "description": "触发点击事件之后，回调函数中会有openLoading，closeLoading两个函数"
+            },
+            {
+              "name": "auto-message-box",
+              "type": [
+                "boolean"
+              ],
+              "description": "触发点击事件之后，会自动弹出message-box"
+            },
+            {
+              "name": "message-box-options",
+              "type": [
+                "SugarButtonPropsRequired['messageBoxOptions']"
+              ],
+              "description": "message-box配置项"
+            },
+            {
+              "name": "size",
+              "description": "button size",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "'large' | 'default' | 'small'"
+              ]
+            },
+            {
+              "name": "type",
+              "description": "button type, when setting `color`, the latter prevails",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info' | '' | 'text'"
+              ]
+            },
+            {
+              "name": "plain",
+              "description": "determine whether it's a plain button",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "text",
+              "description": "determine whether it's a text button",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "bg",
+              "description": "determine whether the text button background color is always on",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "link",
+              "description": "determine whether it's a link button",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "round",
+              "description": "determine whether it's a round button",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "circle",
+              "description": "determine whether it's a circle button",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "loading-icon",
+              "description": "customize loading icon component",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "string",
+                {
+                  "name": "Component",
+                  "source": {
+                    "symbol": "Component",
+                    "module": "vue"
+                  }
+                }
+              ],
+              "default": "Loading"
+            },
+            {
+              "name": "disabled",
+              "description": "disable the button",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "icon",
+              "description": "icon component",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "string",
+                {
+                  "name": "Component",
+                  "source": {
+                    "symbol": "Component",
+                    "module": "vue"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "autofocus",
+              "description": "same as native button's `autofocus`",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "native-type",
+              "description": "same as native button's `type`",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "'button' | 'submit' | 'reset'"
+              ],
+              "default": "button"
+            },
+            {
+              "name": "auto-insert-space",
+              "description": "automatically insert a space between two chinese characters(this will only take effect when the text length is 2 and all characters are in Chinese.)",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "color",
+              "description": "custom button color, automatically calculate `hover` and `active` color",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
+              "name": "dark",
+              "description": "dark mode, which automatically converts `color` to dark mode colors",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "tag",
+              "description": "custom element tag",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "string",
+                {
+                  "name": "Component",
+                  "source": {
+                    "symbol": "Component",
+                    "module": "vue"
+                  }
+                }
+              ],
+              "default": "button"
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "customize default content",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-slots"
+            },
+            {
+              "name": "loading",
+              "description": "customize loading component",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-slots"
+            },
+            {
+              "name": "icon",
+              "description": "customize icon component",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-slots"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "click",
+                "description": "按钮点击, "
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

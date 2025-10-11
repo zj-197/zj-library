@@ -1,0 +1,48 @@
+{
+  "name": "@zj-library/utils",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.1",
+  "description": "工具函数",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "unpkg": "dist/index.umd.js",
+  "jsdelivr": "dist/index.umd.js",
+  "files": [
+    "dist",
+    "types",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "ts-node": "ts-node -T -P tsconfig-check-type.json",
+    "build": "npm run check-type && npm run gen-type && vite build && npm run ts-node bin/gen-README.md.ts",
+    "gen-type": "tsc --project tsconfig-gen-type.json",
+    "check-type": "tsc --project tsconfig-check-type.json"
+  },
+  "keywords": [
+    "ZJ",
+    "Utils"
+  ],
+  "author": "ZJ",
+  "license": "ISC",
+  "types": "types/index.d.ts",
+  "sideEffects": false,
+  "packageManager": "pnpm@10.11.0",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": {
+        "default": "./dist/index.es.js"
+      },
+      "require": {
+        "default": "./dist/index.cjs"
+      }
+    }
+  }
+}

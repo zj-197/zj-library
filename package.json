@@ -1,0 +1,67 @@
+{
+  "name": "zj-library",
+  "private": false,
+  "version": "1.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "个人开发代码常用",
+  "main": "dist/index.es.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run check-type && npm run gen-type && vite build",
+    "check-type": "tsc --project tsconfig-check-type.json",
+    "gen-type": "tsc --project tsconfig-gen-type.json",
+    "build:utils": "pnpm --filter @zj-library/utils run build",
+    "build:hooks": "pnpm --filter @zj-library/vue-hooks run build",
+    "build:cp": "pnpm --filter @zj-library/vue-components run build",
+    "build:all": "pnpm build:utils && pnpm build:hooks && pnpm build:cp && pnpm build && pnpm docs:build",
+    "docs:dev": "vitepress dev vitepress-docs",
+    "docs:build": "vitepress build vitepress-docs",
+    "docs:preview": "vitepress preview vitepress-docs",
+    "publish": "pnpm publish -r",
+    "update:version": "pnpm changeset version",
+    "cs": "pnpm changeset"
+  },
+  "files": [
+    "types",
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@zj-library/utils": "workspace:^",
+    "@zj-library/vue-components": "workspace:^",
+    "@zj-library/vue-hooks": "workspace:^",
+    "element-plus": "^2.11.3",
+    "vue": "catalog:"
+  },
+  "keywords": [
+    "zj"
+  ],
+  "author": "zj",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "@types/node": "^24.3.3",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vitepress": "2.0.0-alpha.12"
+  },
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": {
+        "default": "./dist/index.es.js"
+      },
+      "require": {
+        "default": "./dist/index.cjs"
+      }
+    }
+  }
+}

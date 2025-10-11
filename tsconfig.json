@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    // Recommended
+    "allowArbitraryExtensions": true, // 与模块相关的配置选项。 允许任意扩展名的文件，开启的话，如果用esm导入除ts之外的文件不会报错。
+    "verbatimModuleSyntax": true // or `isolatedModules`
+  },
+  "exclude": ["node_modules"]
+}
