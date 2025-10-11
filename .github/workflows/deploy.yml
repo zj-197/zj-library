@@ -7,7 +7,7 @@ env:
   CI: true
   PNPM_CACHE_FOLDER: .pnpm-store
 jobs:
-  version:
+  deploy:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -21,8 +21,11 @@ jobs:
           node-version: 22.19.0
       - name: 安装pnpm
         run: npm i pnpm@10.11.0 -g
-      - name: 安装 npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" > .npmrc
+      - name: 配置npm认证
+        # 确保指向官方npm源，且认证token正确
+        run: |
+          echo "registry=https://registry.npmjs.org/" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" >> .npmrc
       - name: 设置 pnpm config
         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
       - name: 安装依赖
@@ -30,23 +33,22 @@ jobs:
       - name: 打包
         run: pnpm build:all
       - name: 发包
-        run: pnpm publish -r --no-git-checks
+        # 显式指定公开发布，确保作用域包能公开
+        run: pnpm publish -r --no-git-checks --access public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
       - name: 同步 dist to docs/ (GitHub Pages source)
         run: |
-          # 清空 docs 目录（GitHub Pages 源目录）
           rm -rf ./docs
           mkdir -p ./docs
-          # 将构建产物复制到 docs/
           cp -r ./vitepress-docs/.vitepress/dist/* ./docs/
 
       - name: Commit and push changes
         run: |
-          git config --local user.name [Github-Actions-Deploy]
-          git config --local user.email zj-197@github.com
+          git config --local user.name "Github-Actions-Deploy"
+          git config --local user.email "zj-197@github.com"
           git add -f ./docs
           if git diff --cached --quiet; then
             echo "No changes to commit. Skipping."
@@ -61,4 +63,4 @@ jobs:
             await github.rest.repos.requestPagesBuild({
               owner: context.repo.owner,
               repo: context.repo.repo
-            })          
+            })
