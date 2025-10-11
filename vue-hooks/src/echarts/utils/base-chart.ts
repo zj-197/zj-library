@@ -130,12 +130,7 @@ export default abstract class BaseCpn {
 
 	setColor(color: Array<string>) {
 		if (Array.isArray(color)) {
-			for (let i = color.length - 1; i >= 0; i--) {
-				const item = color[i];
-				if (this.color.indexOf(item) === -1) {
-					this.color.unshift(item);
-				}
-			}
+			this.color = [...new Set([...color, ...this.color])];
 		}
 	}
 
