@@ -1,3 +1,1 @@
-export { generate } from './generator.ts';
-
-
+export { generate } from './generator.ts'

@@ -7,4 +7,3 @@ export default SelectData
 
 export * from './types'
 export type SelectDataInstance = InstanceType<typeof ZJSelectData> & unknown
-

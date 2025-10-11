@@ -1,34 +1,31 @@
-export const Language =  {
+export const Language = {
     TS: 'typescript',
-    JS: 'javascript',
+    JS: 'javascript'
 }
-export function addCode(
-    code: string,
-    language = Language.TS
-): string {
-    let result = '';
+export function addCode(code: string, language = Language.TS): string {
+    let result = ''
     if (code) {
-        const start = '\n```' + language + '\n';
-        const end = '\n```\n';
-        result = start + code + end;
+        const start = '\n```' + language + '\n'
+        const end = '\n```\n'
+        result = start + code + end
     }
-    return result;
+    return result
 }
 export function addTitle(title: string, level: number = 3) {
-    let prefix = getTitlePrefix(level) + ' ';
-    return prefix + title + '\n';
+    let prefix = getTitlePrefix(level) + ' '
+    return prefix + title + '\n'
 }
 export function getTitlePrefix(level: number): string {
     switch (level) {
         case 1:
-            return '#';
+            return '#'
         case 2:
-            return '##';
+            return '##'
         case 3:
-            return '###';
+            return '###'
         case 4:
-            return '####';
+            return '####'
         default:
-            return '#####';
+            return '#####'
     }
 }

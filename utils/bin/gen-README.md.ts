@@ -1,8 +1,8 @@
-import { generate } from '../../bin/gen-simple-ts-doc/index.ts';
-import {dirname, resolve} from 'node:path'
+import { generate } from '../../bin/gen-simple-ts-doc/index.ts'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const utils = resolve(__dirname, '../types/src');
+const utils = resolve(__dirname, '../types/src')
 const root = resolve(__dirname, '../../')
 const utilsDesc = '一些常见的工具函数'
 const utilsH1 = '工具函数'
@@ -12,7 +12,7 @@ generate({
     out: resolve(root, 'utils'),
     isOutputSingle: true,
     outputSingleConfig: {
-        fileName: "README",
+        fileName: 'README',
         desc: utilsDesc,
         h1: utilsH1
     },
@@ -24,11 +24,9 @@ generate({
     out: resolve(root, 'vitepress-docs/utils'),
     isOutputSingle: true,
     outputSingleConfig: {
-        fileName: "index",
+        fileName: 'index',
         desc: utilsDesc,
         h1: utilsH1
     },
     titleMap: {}
 })
-
-

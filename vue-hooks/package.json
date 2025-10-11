@@ -1,54 +1,54 @@
 {
-  "name": "@zj-library/vue-hooks",
-  "version": "1.0.1",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "description": "zj常用的vue-hooks",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
-  "unpkg": "dist/index.umd.js",
-  "jsdelivr": "dist/index.umd.js",
-  "type": "module",
-  "files": [
-    "dist",
-    "types",
-    "package.json",
-    "README.md",
-    "CHANGELOG.md"
-  ],
-  "scripts": {
-    "dev": "vite",
-    "ts-node": "ts-node -T -P tsconfig-check-type.json",
-    "build": "npm run check-type && npm run gen-type && vite build && npm run ts-node bin/gen-README.md.ts",
-    "gen-type": "tsc --project tsconfig-gen-type.json",
-    "check-type": "tsc --project tsconfig-check-type.json"
-  },
-  "keywords": [
-    "hooks",
-    "vue",
-    "zj"
-  ],
-  "author": "ZJ",
-  "license": "ISC",
-  "packageManager": "pnpm@10.11.0",
-  "dependencies": {
-    "@zj-library/utils": "workspace:^",
-    "echarts": "^6.0.0",
-    "vue": "catalog:"
-  },
-  "types": "types/index.d.ts",
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./types/index.d.ts",
-      "import": {
-        "default": "./dist/index.es.js"
-      },
-      "require": {
-        "default": "./dist/index.cjs"
-      }
+    "name": "@zj-library/vue-hooks",
+    "version": "1.0.1",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "zj常用的vue-hooks",
+    "main": "dist/index.umd.js",
+    "module": "dist/index.es.js",
+    "unpkg": "dist/index.umd.js",
+    "jsdelivr": "dist/index.umd.js",
+    "type": "module",
+    "files": [
+        "dist",
+        "types",
+        "package.json",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "scripts": {
+        "dev": "vite",
+        "ts-node": "ts-node -T -P tsconfig-check-type.json",
+        "build": "npm run check-type && npm run gen-type && vite build && npm run ts-node bin/gen-README.md.ts",
+        "gen-type": "tsc --project tsconfig-gen-type.json",
+        "check-type": "tsc --project tsconfig-check-type.json"
+    },
+    "keywords": [
+        "hooks",
+        "vue",
+        "zj"
+    ],
+    "author": "ZJ",
+    "license": "ISC",
+    "packageManager": "pnpm@10.11.0",
+    "dependencies": {
+        "@zj-library/utils": "workspace:^",
+        "echarts": "^6.0.0",
+        "vue": "catalog:"
+    },
+    "types": "types/index.d.ts",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./types/index.d.ts",
+            "import": {
+                "default": "./dist/index.es.js"
+            },
+            "require": {
+                "default": "./dist/index.cjs"
+            }
+        }
     }
-  }
 }

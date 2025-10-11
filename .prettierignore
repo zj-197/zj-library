@@ -1,5 +1,4 @@
 node_modules/
-/.husky/_
 dist/
 .idea/
 .vscode/
@@ -11,6 +10,8 @@ vitepress-docs/.vitepress/cache/
 utils/README.md
 vue-hooks/README.md
 vue-components/README.md
+vue-components/web-types.json
 vitepress-docs/vue-components/index.md
 vitepress-docs/vue-hooks/index.md
 vitepress-docs/utils/index.md
+.husky/

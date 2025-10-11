@@ -6,21 +6,21 @@
  * @最后更新日期:
  * @最新更新内容:
  */
-import { reactive } from 'vue';
+import { reactive } from 'vue'
 import { deepClone, merge } from '@zj-library/utils'
 
-/**
- * 带有重置原数据的钩子
- */
-export default function useResettableRef<T extends {[key:string]: any}>(state: T): {
-    state: T;
-    reset: (data?: T) => void;
+/** 带有重置原数据的钩子 */
+export default function useResettableRef<T extends { [key: string]: any }>(
+    state: T
+): {
+    state: T
+    reset: (data?: T) => void
 } {
-    let stateRef:any = reactive(deepClone(state));
+    let stateRef: any = reactive(deepClone(state))
     return {
         state: stateRef,
         reset: (data) => {
-            let cloneValue:any = data
+            let cloneValue: any = data
             if (!cloneValue) {
                 cloneValue = deepClone(state)
             } else {
@@ -31,6 +31,6 @@ export default function useResettableRef<T extends {[key:string]: any}>(state: T
                     stateRef[key] = cloneValue[key]
                 }
             }
-        },
-    };
+        }
+    }
 }
