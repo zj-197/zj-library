@@ -37,7 +37,8 @@ async function main () {
         } else {
             execSync('git checkout dev', { stdio: 'inherit' })
         }
-        // execSync('pnpm cs', { stdio: 'inherit' })
+        // 选择更新包
+        execSync('pnpm cs', { stdio: 'inherit' })
         // 更新版本
         execSync('pnpm update:version', { stdio: 'inherit' })
 
@@ -46,7 +47,7 @@ async function main () {
 
         // 合并dev分支，使用theirs策略（冲突时优先采用dev分支的修改）
         console.log('执行 git merge dev -Xtheirs...')
-        execSync('git merge dev -Xtheirs', { stdio: 'inherit' })
+        execSync('git merge dev -Xtheirs --no-edit', { stdio: 'inherit' })
 
         // 打包
         console.log('打包')
@@ -55,12 +56,11 @@ async function main () {
         await sleep(200)
         // 增加components.d.ts文件
         await genGlobalDTs()
-
         // 登录
         execSync('pnpm login', { stdio: 'inherit' })
         try {
             // 发包
-            execSync("pnpm publish", { stdio: 'inherit' })
+            execSync("npm run publish", { stdio: 'inherit' })
         } catch (e) {
 
         }
@@ -87,6 +87,8 @@ async function main () {
         // 更新到gitee/dev
         console.log('执行 git push gitee dev...')
         execSync('git push gitee dev', { stdio: 'inherit' })
+
+        execSync('git push github dev', { stdio: 'inherit' })
 
         console.log('所有Git操作执行完成！')
     } catch (error) {
