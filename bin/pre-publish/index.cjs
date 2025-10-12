@@ -60,7 +60,7 @@ async function main () {
         execSync('pnpm login', { stdio: 'inherit' })
         try {
             // 发包
-            execSync("pnpm publish", { stdio: 'inherit' })
+            execSync("npm run publish", { stdio: 'inherit' })
         } catch (e) {
 
         }
