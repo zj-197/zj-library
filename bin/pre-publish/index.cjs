@@ -52,6 +52,10 @@ async function main () {
         console.log('打包')
         execSync('pnpm build:all', { stdio: 'inherit' })
 
+        await sleep(200)
+        // 增加components.d.ts文件
+        await genGlobalDTs()
+
         // 登录
         execSync('pnpm login', { stdio: 'inherit' })
         try {
