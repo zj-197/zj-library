@@ -37,6 +37,9 @@ async function main() {
         execSync('git checkout dev', { stdio: 'inherit' })
         // 选择更新包
         execSync('pnpm cs', { stdio: 'inherit' })
+        try {
+            execSync('clear', { stdio: 'inherit' })
+        } catch (e) {}
         // 更新版本
         execSync('pnpm update:version', { stdio: 'inherit' })
 

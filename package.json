@@ -23,7 +23,7 @@
         "docs:dev": "vitepress dev vitepress-docs",
         "docs:build": "vitepress build vitepress-docs",
         "docs:preview": "vitepress preview vitepress-docs",
-        "publish": "pnpm publish -r --registry=https://registry.npmjs.org/",
+        "publish": "pnpm publish -r",
         "update:version": "pnpm changeset version",
         "cs": "pnpm changeset",
         "prepub": "npm run lintfix && node bin/pre-publish/index.cjs"
