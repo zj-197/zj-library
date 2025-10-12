@@ -22,9 +22,9 @@
         "CHANGELOG.md"
     ],
     "scripts": {
-        "build": "npm run check-type && npm run gen-type && vite build && node bin/gen-attributes.json.cjs && node bin/gen-README.md.cjs && node bin/gen-tags.json.cjs",
-        "gen-type": "tsc --project tsconfig-gen-type.json",
-        "check-type": "tsc --project tsconfig-check-type.json",
+        "build": "npm run check-type && npm run gen-type &&  vite build && node bin/gen-attributes.json.cjs &&  node bin/gen-README.md.cjs && node bin/gen-tags.json.cjs",
+        "gen-type": "npx vue-tsc --project tsconfig-gen-type.json && tsc --project tsconfig-gen-type.json",
+        "check-type": "tsc --project tsconfig-check-type.json && npx vue-tsc --project tsconfig-check-type.json",
         "dev": "vite"
     },
     "keywords": [
@@ -36,11 +36,12 @@
     "packageManager": "pnpm@10.11.0",
     "dependencies": {
         "@element-plus/icons-vue": "^2.3.2",
+        "@vue/runtime-core": "^3.5.21",
         "@zj-library/utils": "workspace:^",
         "@zj-library/vue-hooks": "workspace:^",
         "element-plus": "^2.11.3",
-        "vue": "catalog:",
-        "@vue/runtime-core": "^3.5.21"
+        "lodash-unified": "^1.0.3",
+        "vue": "catalog:"
     },
     "types": "types/index.d.ts",
     "sideEffects": false,
@@ -56,7 +57,8 @@
         }
     },
     "devDependencies": {
-        "@vitejs/plugin-vue": "^6.0.1"
+        "@vitejs/plugin-vue": "^6.0.1",
+        "vue-tsc": "^3.1.1"
     },
     "web-types": "web-types.json"
 }
