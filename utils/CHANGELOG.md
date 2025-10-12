@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
--   8d72cac: 删除.ts后缀
+-   a9545a7: 删除.ts后缀
 
 ## 1.0.1
 

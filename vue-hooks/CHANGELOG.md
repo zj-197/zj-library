@@ -4,8 +4,8 @@
 
 ### Patch Changes
 
--   8d72cac: 删除.ts后缀
--   Updated dependencies [8d72cac]
+-   a9545a7: 删除.ts后缀
+-   Updated dependencies [a9545a7]
     -   @zj-library/utils@1.0.2
 
 ## 1.0.1
