@@ -4,8 +4,8 @@
 
 ### Patch Changes
 
--   5124c54: 删除.ts后缀
--   Updated dependencies [5124c54]
+-   a6f7dbe: 删除.ts后缀，避免对声明文件造成影响
+-   Updated dependencies [a6f7dbe]
     -   @zj-library/utils@1.0.2
 
 ## 1.0.1
