@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import type { LoadListProps, PageConfigData, PageConfig } from './types.ts'
+import type { LoadListProps, PageConfigData, PageConfig } from './types'
 defineOptions({
     name: 'LoadList'
 })

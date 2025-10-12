@@ -1,6 +1,6 @@
 import { withInstall } from '../install'
 import type { SFCWithInstall } from '../component-install-types'
-import ZJFormTableContainer from './Container.ts'
+import ZJFormTableContainer from './Container'
 import ZJTableEditColumn from './EditColumn.vue'
 import ZJTableEditColumnAction from './EditColumnAction.vue'
 import ZJFormTableSearchItem from './SearchItem.vue'

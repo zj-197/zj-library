@@ -1,7 +1,7 @@
 import { defineComponent, h, type PropType, provide, toValue } from 'vue'
 import FormItem from '../FormItem/index.vue'
 import { ElTableColumn, ElRow, ElCol } from 'element-plus'
-import { EditTable, getTemplateElColProps, getTemplateElTableColumnProps } from './utils.ts'
+import { EditTable, getTemplateElColProps, getTemplateElTableColumnProps } from './utils'
 import { getTemplateFormItemProps } from '../FormItem/utils'
 import { getPropertyValueByPath, isObject, noop } from '@zj-library/utils'
 
