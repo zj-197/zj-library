@@ -1,6 +1,6 @@
 const { execSync } = require('child_process')
 const path = require('path');
-const {copyDir} = require('./utils.cjs')
+const {copyDir, copyFile} = require('./utils.cjs')
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -14,6 +14,18 @@ async function genDocs() {
         console.error('复制过程中出现错误:', err);
     }
 }
+
+async function genGlobalDTs() {
+    const sourceDir = path.join(__dirname, "../../", 'vue-components/global.d.ts');
+    const targetDir = path.join(__dirname, "../../", 'global.d.ts');
+    try {
+        await copyFile(sourceDir, targetDir);
+        console.log('目录复制成功');
+    } catch (err) {
+        console.error('复制过程中出现错误:', err);
+    }
+}
+
 async function main () {
     const message = process.argv[2]
     try {
@@ -40,12 +52,18 @@ async function main () {
         console.log('打包')
         execSync('pnpm build:all', { stdio: 'inherit' })
 
+        await sleep(200)
+        // 增加components.d.ts文件
+        await genGlobalDTs()
+
         // 登录
-        execSync('npm login', { stdio: 'inherit' })
+        execSync('pnpm login', { stdio: 'inherit' })
+        try {
+            // 发包
+            execSync("pnpm publish", { stdio: 'inherit' })
+        } catch (e) {
 
-        // 发包
-        execSync("pnpm publish", { stdio: 'inherit' })
-
+        }
         // 生成docs
         await genDocs()
 

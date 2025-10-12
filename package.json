@@ -1,7 +1,7 @@
 {
     "name": "zj-library",
     "private": false,
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -32,7 +32,8 @@
         "types",
         "dist",
         "README.md",
-        "package.json"
+        "package.json",
+        "global.d.ts"
     ],
     "dependencies": {
         "@element-plus/icons-vue": "^2.3.2",
