@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
--   1b67bfb: 更改脚本和删除.ts后缀
+-   8d72cac: 删除.ts后缀
 
 ## 1.0.1
 
