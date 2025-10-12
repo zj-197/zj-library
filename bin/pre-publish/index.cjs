@@ -1,6 +1,9 @@
 const { execSync } = require('child_process')
 const path = require('path');
 const {copyDir} = require('./utils.cjs')
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function genDocs() {
     const sourceDir = path.join(__dirname, "../../", 'vitepress-docs/.vitepress/dist');
     const targetDir = path.join(__dirname, "../../", 'docs');
@@ -18,6 +21,7 @@ async function main () {
         if (currentBranch === 'dev') {
             execSync('git add .', { stdio: 'inherit' })
             execSync(`git commit -m  ${message}`, { stdio: 'inherit' })
+            await sleep(2000)
         } else {
             execSync('git checkout dev', { stdio: 'inherit' })
         }
@@ -35,6 +39,9 @@ async function main () {
         // 打包
         console.log('打包')
         execSync('pnpm build:all', { stdio: 'inherit' })
+
+        // 登录
+        execSync('npm login')
 
         // 发包
         execSync("pnpm publish", { stdio: 'inherit' })
