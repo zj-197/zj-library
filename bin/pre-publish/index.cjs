@@ -41,7 +41,7 @@ async function main () {
         execSync('pnpm build:all', { stdio: 'inherit' })
 
         // 登录
-        execSync('npm login')
+        execSync('npm login', { stdio: 'inherit' })
 
         // 发包
         execSync("pnpm publish", { stdio: 'inherit' })
