@@ -3,6 +3,7 @@ node_modules/
 dist/
 .idea/
 .vscode/
+/global.d.ts
 .DS_Store
 types/
 tags.json

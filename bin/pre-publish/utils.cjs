@@ -35,5 +35,6 @@ async function copyDir(sourceDir, targetDir) {
 
 
 module.exports = {
-    copyDir
+    copyDir,
+    copyFile
 }
