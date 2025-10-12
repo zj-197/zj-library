@@ -25,7 +25,7 @@ async function main () {
         } else {
             execSync('git checkout dev', { stdio: 'inherit' })
         }
-        execSync('pnpm cs', { stdio: 'inherit' })
+        // execSync('pnpm cs', { stdio: 'inherit' })
         // 更新版本
         execSync('pnpm update:version', { stdio: 'inherit' })
 
