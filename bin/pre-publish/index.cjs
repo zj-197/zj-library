@@ -45,7 +45,10 @@ async function main() {
 
         execSync('git add .')
 
-        execSync('git commit --amend --no-edit', { stdio: 'inherit' })
+        execSync('git commit --amend --no-edit --no-verify', { stdio: 'inherit' })
+        try {
+            execSync('clear', { stdio: 'inherit' })
+        } catch (e) {}
 
         // 切换到main分支
         execSync('git checkout main', { stdio: 'inherit' })
@@ -57,6 +60,9 @@ async function main() {
         // 打包
         console.log('开始打包...')
         execSync('pnpm build:all', { stdio: 'inherit' })
+        try {
+            execSync('clear', { stdio: 'inherit' })
+        } catch (e) {}
 
         await sleep(200)
         // 增加components.d.ts文件
@@ -69,8 +75,7 @@ async function main() {
             console.log('开始发包...')
             // 发包
             execSync('npm run publish', { stdio: 'inherit' })
-        } catch (e) {
-        }
+        } catch (e) {}
         // 生成docs
         console.log('开始生成docs目录')
         await genDocs()
