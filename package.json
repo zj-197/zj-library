@@ -26,7 +26,7 @@
         "publish": "pnpm publish -r --registry=https://registry.npmjs.org/",
         "update:version": "pnpm changeset version",
         "cs": "pnpm changeset",
-        "prepub": "node bin/pre-publish/index.cjs"
+        "prepub": "npm run lintfix && node bin/pre-publish/index.cjs"
     },
     "files": [
         "types",

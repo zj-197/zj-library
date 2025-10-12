@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ElMessageBox } from 'element-plus'
 import { reactive } from 'vue'
-import type { SugarButtonProps } from './types.ts'
+import type { SugarButtonProps } from './types'
 defineOptions({
     name: 'SugarButton'
 })

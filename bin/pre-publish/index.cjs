@@ -1,46 +1,43 @@
 const { execSync } = require('child_process')
-const path = require('path');
-const {copyDir, copyFile} = require('./utils.cjs')
+const path = require('path')
+const { copyDir, copyFile } = require('./utils.cjs')
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms))
 }
 async function genDocs() {
-    const sourceDir = path.join(__dirname, "../../", 'vitepress-docs/.vitepress/dist');
-    const targetDir = path.join(__dirname, "../../", 'docs');
+    const sourceDir = path.join(__dirname, '../../', 'vitepress-docs/.vitepress/dist')
+    const targetDir = path.join(__dirname, '../../', 'docs')
     try {
-        await copyDir(sourceDir, targetDir);
-        console.log('目录复制成功');
+        await copyDir(sourceDir, targetDir)
+        console.log('目录复制成功')
     } catch (err) {
-        console.error('复制过程中出现错误:', err);
+        console.error('复制过程中出现错误:', err)
     }
 }
 
 async function genGlobalDTs() {
-    const sourceDir = path.join(__dirname, "../../", 'vue-components/global.d.ts');
-    const targetDir = path.join(__dirname, "../../", 'global.d.ts');
+    const sourceDir = path.join(__dirname, '../../', 'vue-components/global.d.ts')
+    const targetDir = path.join(__dirname, '../../', 'global.d.ts')
     try {
-        await copyFile(sourceDir, targetDir);
-        console.log('目录复制成功');
+        await copyFile(sourceDir, targetDir)
+        console.log('目录复制成功')
     } catch (err) {
-        console.error('复制过程中出现错误:', err);
+        console.error('复制过程中出现错误:', err)
     }
 }
 
-async function main () {
-    const message = process.argv[2]
+async function main() {
     try {
         const currentBranch = execSync('git rev-parse --abbrev-ref HEAD', { encoding: 'utf-8' }).trim()
-        if (currentBranch === 'dev') {
-            execSync('git add .', { stdio: 'inherit' })
-            execSync(`git commit -m  ${message}`, { stdio: 'inherit' })
-            await sleep(2000)
-        } else {
-            execSync('git checkout dev', { stdio: 'inherit' })
-        }
+        execSync('git checkout dev', { stdio: 'inherit' })
         // 选择更新包
         execSync('pnpm cs', { stdio: 'inherit' })
         // 更新版本
         execSync('pnpm update:version', { stdio: 'inherit' })
+
+        execSync('git add .')
+
+        execSync('git commit --amend --no-edit', { stdio: 'inherit' })
 
         // 切换到main分支
         execSync('git checkout main', { stdio: 'inherit' })
@@ -60,17 +57,15 @@ async function main () {
         execSync('pnpm login', { stdio: 'inherit' })
         try {
             // 发包
-            execSync("npm run publish", { stdio: 'inherit' })
-        } catch (e) {
-
-        }
+            execSync('npm run publish', { stdio: 'inherit' })
+        } catch (e) {}
         // 生成docs
         await genDocs()
 
         // 添加文件
-        execSync("git add .", { stdio: 'inherit' })
+        execSync('git add .', { stdio: 'inherit' })
 
-        execSync("git commit --amend --no-edit", { stdio: 'inherit' })
+        execSync('git commit --amend --no-edit', { stdio: 'inherit' })
 
         // 将本地main分支推送到远程仓库github的main分支
         console.log('执行 git push github main...')

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type SelectProps } from './types'
 import { ElSelect } from 'element-plus'
-import {type SelectInstance} from 'element-plus'
+import { type SelectInstance } from 'element-plus'
 import { type ComponentInstance, computed, getCurrentInstance, h, mergeProps } from 'vue'
 import { getOptionsConfig, getSelectedItemByValue } from './utils'
 

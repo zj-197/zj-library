@@ -23,6 +23,3 @@ const fn5 = async () => {
     await sleep(500)
     console.log('fn5')
 }
-loadTasks([fn1, fn2, fn3, fn4, fn5], null, (err, index) => {
-    console.error(err, index)
-})
