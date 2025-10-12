@@ -29,6 +29,11 @@ async function genGlobalDTs() {
 async function main() {
     try {
         const currentBranch = execSync('git rev-parse --abbrev-ref HEAD', { encoding: 'utf-8' }).trim()
+        try {
+            execSync('clear', { stdio: 'inherit' })
+        } catch (e) {
+            console.error(e.message)
+        }
         execSync('git checkout dev', { stdio: 'inherit' })
         // 选择更新包
         execSync('pnpm cs', { stdio: 'inherit' })
@@ -54,7 +59,7 @@ async function main() {
         // 增加components.d.ts文件
         await genGlobalDTs()
         // 登录
-        execSync('pnpm login', { stdio: 'inherit' })
+        execSync('npm login', { stdio: 'inherit' })
         try {
             // 发包
             execSync('npm run publish', { stdio: 'inherit' })

@@ -4,8 +4,8 @@
 
 ### Patch Changes
 
--   a9545a7: 删除.ts后缀
--   Updated dependencies [a9545a7]
+-   5124c54: 删除.ts后缀
+-   Updated dependencies [5124c54]
     -   @zj-library/vue-hooks@1.0.2
     -   @zj-library/utils@1.0.2
 
