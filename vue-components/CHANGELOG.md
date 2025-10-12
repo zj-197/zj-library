@@ -1,5 +1,11 @@
 # @zj-library/vue-components
 
+## 1.0.2
+
+### Patch Changes
+
+-   9182f55: 增加vscode支持的类型定义文件
+
 ## 1.0.1
 
 ### Patch Changes

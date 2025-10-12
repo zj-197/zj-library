@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<DatePickerProps>(), {
 
 const shortcuts = computed(() => {
     const emptyArray: any = []
-    if (props.type === 'date' || props.type === 'datetime') {
+    if (props.type === 'date' || props.type === 'datetime' || !props.type) {
         if (props.availableStartDate) {
             if (props.availableEndDate) return emptyArray
             return shortcutsOfDateAfter
