@@ -158,10 +158,16 @@ export function getPropertyValueByPath(obj: any, path: string, placeholder?: any
     }
     let currentObj: any = obj
     for (const p of path.split('.')) {
-        const value = currentObj[p]
-        if (typeof value === 'number') return value
-        if (isEmpty(value)) return placeholder
-        currentObj = value
+        let value
+        try {
+            value = currentObj[p]
+            currentObj = value
+        } catch (e) {
+            break;
+        }
+    }
+    if (typeof placeholder !== 'undefined') {
+        return isEmpty(currentObj, false) ? placeholder : currentObj
     }
     return currentObj
 }
