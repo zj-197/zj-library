@@ -22,7 +22,7 @@
         "CHANGELOG.md"
     ],
     "scripts": {
-        "build": "npm run check-type && npm run gen-type &&  vite build && node bin/gen-attributes.json.cjs &&  node bin/gen-README.md.cjs && node bin/gen-tags.json.cjs",
+        "build": "node bin/gen-index.ts.mjs && npm run check-type && npm run gen-type && node bin/gen-attributes.json.cjs && node bin/gen-README.md.cjs && node bin/gen-tags.json.cjs && vite build",
         "gen-type": "npx vue-tsc --project tsconfig-gen-type.json && tsc --project tsconfig-gen-type.json",
         "check-type": "tsc --project tsconfig-check-type.json && npx vue-tsc --project tsconfig-check-type.json",
         "dev": "vite",

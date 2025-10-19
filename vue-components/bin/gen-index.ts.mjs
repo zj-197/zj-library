@@ -25,10 +25,13 @@ function handleDirective(directiveName) {
 for (const fileName of fs.readdirSync(path.join(__dirname, '../src'), { encoding: 'utf8' })) {
     const name = path.basename(fileName)
     if (fs.existsSync(path.join(__dirname, '../src', fileName, 'index.ts'))) {
-        content += handleCpns(name)
-        cpns.push(name)
-        content += handleDirective(name)
-        directives.push(name)
+        if (fs.existsSync(path.join(__dirname, '../src', fileName, 'index.vue')) || fs.existsSync(path.join(__dirname, '../src', fileName, 'types.ts'))) {
+            content += handleCpns(name)
+            cpns.push(name)
+        } else {
+            content += handleDirective(name)
+            directives.push(name)
+        }
     }
 }
 
@@ -52,9 +55,13 @@ export const ZjLibraryCp = makeInstaller([${cpns.join(', ')}])
 export default ZjLibraryCp
 `
 
-fs.writeFile(path.join(__dirname, '../', 'index.ts'), content, {
-    encoding: 'utf8',
-    flag: 'w'
-}, (err) => {
-
-})
+fs.writeFile(
+    path.join(__dirname, '../', 'index.ts'),
+    content,
+    {
+        encoding: 'utf8',
+        flag: 'w',
+        flush: true
+    },
+    (err) => {}
+)

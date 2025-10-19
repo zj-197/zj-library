@@ -1,19 +1,23 @@
 import path from 'node:path'
 import fs from 'node:fs'
-import {fileURLToPath} from 'node:url'
+import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-let cpName = process.argv[2];
-cpName = cpName.slice(0, 1).toUpperCase() + cpName.slice(1);
+let cpName = process.argv[2]
+cpName = cpName.slice(0, 1).toUpperCase() + cpName.slice(1)
 const cpDir = path.join(__dirname, '../src', cpName)
-fs.mkdirSync(cpDir, { recursive: true });
+fs.mkdirSync(cpDir, { recursive: true })
 
-function createFile (fileName, content) {
-  fs.writeFile(path.join(cpDir, fileName), content, {
-    encoding: 'utf-8',
-    mode: 0o644,
-    flag: 'wx'
-  }, (err) => {
-  })
+function createFile(fileName, content) {
+    fs.writeFile(
+        path.join(cpDir, fileName),
+        content,
+        {
+            encoding: 'utf-8',
+            mode: 0o644,
+            flag: 'wx'
+        },
+        (err) => {}
+    )
 }
 
 const indexTs = `
@@ -52,5 +56,3 @@ export type ${cpName}Props = {
 createFile('index.ts', indexTs)
 createFile('index.vue', indexVue)
 createFile('types.ts', typesTs)
-
-
