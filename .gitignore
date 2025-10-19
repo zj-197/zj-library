@@ -12,6 +12,7 @@ vitepress-docs/.vitepress/cache/
 utils/README.md
 vue-hooks/README.md
 vue-components/README.md
+vue-components/index.ts
 vitepress-docs/vue-components/index.md
 vitepress-docs/vue-hooks/index.md
 vitepress-docs/utils/index.md
