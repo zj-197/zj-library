@@ -16,13 +16,14 @@ export default defineConfig({
             formats: ['es', 'cjs', 'umd']
         },
         rollupOptions: {
-            external: ['vue', '@zj-library/utils', '@zj-library/vue-components', '@zj-library/vue-hooks'],
+            external: ['vue', '@zj-library/utils', '@zj-library/vue-components', '@zj-library/vue-hooks', 'echarts'],
             output: {
                 chunkFileNames: 'chunks/[name].[hash].js',
                 globals: {
                     '@zj-library/vue-components': '$ZJVueComponents',
                     '@zj-library/utils': '$ZJUtils',
                     '@zj-library/vue-hooks': '$ZJHooks',
+                    echarts: 'echarts',
                     vue: 'Vue'
                 }
             }
