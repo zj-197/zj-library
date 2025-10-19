@@ -82,8 +82,9 @@ async function main() {
 
         // 添加文件
         execSync('git add .', { stdio: 'inherit' })
-
-        execSync('git commit -m 更新文档', { stdio: 'inherit' })
+        try {
+            execSync('git commit -m 更新文档', { stdio: 'inherit' })
+        } catch (e) {}
 
         // 将本地main分支推送到远程仓库github的main分支
         console.log('main分支 推送到github')
