@@ -2,8 +2,12 @@
  * 等待多少秒钟，单位为毫秒
  *
  * @param ms 传入的值
+ * @example
+ * sleep(20).then(() => {
+ *     // 做点什么
+ *  }) 等待20毫秒之后
  */
-export function sleep(ms: number) {
+export function sleep(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
@@ -11,6 +15,8 @@ export function sleep(ms: number) {
  * 是否是对象
  *
  * @param value 传入的值
+ * @example
+ * isObject({}) => true; isObject([]) => false
  */
 
 export function isObject(value: any) {
@@ -18,9 +24,13 @@ export function isObject(value: any) {
 }
 
 /**
- * 深度克隆
+ * 深度克隆, 会克隆原型和symbol
  *
  * @param value 传入的指
+ * @example
+ * deepClose({a: 1, b: 2, c: {d: 'e'}, f: [1, 2], g: Symbol('f'), date: new Date()}) =>
+ * 新对象{a: 1, b: 2, c: {d: 'e'}, f: [1, 2], g: Symbol('f'), date: xxx}, date为以前的对象
+ * 这点针对普通对象和数组进行克隆，其他对象不进行任何操作
  */
 export function deepClone<T>(value: T): T {
     const cache = new Map()
@@ -54,8 +64,19 @@ export function deepClone<T>(value: T): T {
 
     return _deepClone(value)
 }
-
-function isArrayOrObject(value: any) {
+/**
+ * 是否是普通对象或者数组
+ *
+ * @param value 传入的指
+ * @example
+ * isArrayOrObject({}) => true
+ * isArrayOrObject([]) => true
+ * isArrayOrObject(new Date()) => false
+ * isArrayOrObject(new Set()) => false
+ * .... 其他均为false
+ *
+ */
+export function isArrayOrObject(value: any) {
     return Array.isArray(value) || isObject(value)
 }
 
@@ -65,6 +86,10 @@ function isArrayOrObject(value: any) {
  * @param target 目标对象
  * @param mergeArray 是否合并数组
  * @param sources 源对象
+ * @example
+ * const target = {a: 'b', e: [2, {f: 'd'}, {g: 'h'}] }; const source = {c: 'd', e: [1]}
+ * merge(target, false, source) => {a: 'b', c: 'd', e: [1]}
+ * merge(target, true, source) => {a: 'b', c: 'd', e: [1, {f: 'd'}, {g: 'h'}]}
  */
 export function merge(target: any, mergeArray: boolean, ...sources: any[]) {
     if (!isArrayOrObject(target)) return target
@@ -97,8 +122,18 @@ export function merge(target: any, mergeArray: boolean, ...sources: any[]) {
 /**
  * 判断值是否为空
  *
- * @param value 判断值
+ * @param value 判断值, 常规的空值：'', null, undefined, NaN, false 等都会判定为空
  * @param isIncludeZero 是否包含0
+ * @example
+ * // 默认将0也判定为空
+ * isEmpty(0) => true
+ * // 将0判定为不为空
+ * isEmpty(0, false) => false
+ *
+ * // 空对象判定为空
+ * isEmpty({}) => true;
+ * // 空数组判定为空
+ * isEmpty([]) => true
  */
 export function isEmpty(value: any, isIncludeZero = true) {
     switch (typeof value) {
@@ -125,22 +160,47 @@ export function isEmpty(value: any, isIncludeZero = true) {
 }
 
 /**
- * 判断值是否不为空
+ * 判断值是否不为空，相当于 !isEmpty(value)
  *
- * @param value 判断值
+ * @param value 判断值, 常规的空值：'', null, undefined, NaN, false 等都会判定为空
+ * @param isIncludeZero 是否包含0
+ * @example
+ * // 默认将0也判定为0
+ * isNotEmpty(0) => false
+ * // 将0判定为不为空
+ * isNotEmpty(0, false) => true
+ *
+ * // 空对象判定为空
+ * isNotEmpty({}) => false;
+ * // 空数组判定为空
+ * isNotEmpty([]) => false
  */
-export function isNotEmpty(value: any) {
-    return !isEmpty(value)
+export function isNotEmpty(value: any, isIncludeZero = true) {
+    return !isEmpty(value, isIncludeZero)
 }
 
 /**
  * 数字后面添加 %
  *
  * @param value 传入的数值
+ * @param isDecimal 是否处理小数：0.8534 => 85.3
+ * @example
+ * addPercentage(10) => 10%
+ * addPercentage(0.4569, true) => 45.7%
+ * addPercentage('10%') => 10%
+ * 其他类型的值 返回空字符串
  */
-export function addPercentage(value: any): string {
-    if (isEmpty(value, false)) return ''
-    return String(value).endsWith('%') ? value : value + '%'
+export function addPercentage(value: any, isDecimal = false): string {
+    if (typeof value === 'number' || typeof value === 'string') {
+        if (isDecimal) {
+            // @ts-ignore
+            value = parseFloat(value) * 100
+            value = value.toFixed(2)
+        }
+        return String(value).endsWith('%') ? value : value + '%'
+    }
+    return ''
+
 }
 
 /**
@@ -148,10 +208,16 @@ export function addPercentage(value: any): string {
  *
  * @param obj 传入的对象
  * @param path 传入的path路径：a.b[0].c
- * @param placeholder 占位符, 默认为 --
+ * @param placeholder 为空时的占位符
+ * @example
+ * const obj = {a:{b: [1]}}
+ * getPropertyValueByPath(obj, 'a.b[0]') => 1
+ * getPropertyValueByPath(obj, 'a.b[1]', '--') => --
  */
-export function getPropertyValueByPath(obj: any, path: string, placeholder?: any) {
-    if (isEmpty(obj)) return placeholder
+export function getPropertyValueByPath(obj: Record<any, any>, path: string, placeholder?: any) {
+    if (isEmpty(obj)) {
+        return typeof placeholder !== 'undefined' ? placeholder : obj
+    }
     path = path.replace(/\[/g, '.').replace(/]/g, '')
     if (path.startsWith('.')) {
         path = path.slice(1)
@@ -176,8 +242,11 @@ export function getPropertyValueByPath(obj: any, path: string, placeholder?: any
  * 设置对象的属性值
  *
  * @param obj 传入的对象
- * @param path 传入的path路径：a.b[0][1].c
+ * @param path 传入的path路径
  * @param value 设置的值
+ * @example
+ * const obj = {a:{b: [[{e: 'd'}]]}}
+ * setPropertyValueByPath(obj, 'a.b[0][1].c', 'g') => {a:{b: [[{e: 'd'}, {c: 'g'}]]}}
  */
 export function setPropertyValueByPath<T>(obj: T, path: string, value: any) {
     const paths = path
@@ -187,11 +256,13 @@ export function setPropertyValueByPath<T>(obj: T, path: string, value: any) {
     let currentObj: any = obj
     for (let i = 0; i < paths.length - 1; i++) {
         const _p = paths[i].replace(/]/, '')
-        // 说明是数组
-        if (paths[i + 1].endsWith(']')) {
-            currentObj[_p] = []
-        } else {
-            currentObj[_p] = {}
+        if (!currentObj[_p]) {
+            // 说明是数组
+            if (paths[i + 1].endsWith(']')) {
+                currentObj[_p] = []
+            } else {
+                currentObj[_p] = {}
+            }
         }
         currentObj = currentObj[_p]
     }
@@ -204,21 +275,22 @@ export function setPropertyValueByPath<T>(obj: T, path: string, value: any) {
  *
  * @param str 输入的横杠分隔字符串（如 "hello-world"或"Hello-World"）=> helloWorld
  * @returns 小驼峰格式字符串（如 "helloWorld"）
+ * @example
+ * kebabToCamelCase('hello-world') => helloWorld
+ * kebabToCamelCase('Hello-World') => helloWorld
+ * kebabToCamelCase('HeLlo') => hello
  */
 export function kebabToCamelCase(str: string): string {
     // 1. 按 "-" 分割字符串，过滤空字符（处理连续 "-" 或首尾 "-" 场景）
-    const words = str.split('-').filter((word) => word.trim() !== '')
-
+    const words = camelCaseToKebab(str).split('-').filter((word) => word.trim() !== '')
     // 2. 边界处理：若分割后无有效单词，返回空字符串
     if (words.length === 0) return ''
-    if (words.length === 1) return words[0]
     // 3. 处理第一个单词（全小写）
-    const firstWord = words[0].toLowerCase()
-
+    const firstWord = words[0]
     // 4. 处理后续单词（首字母大写 + 其余小写）
     const restWords = words.slice(1).map((word) => {
         if (word.length === 0) return '' // 兜底空字符串（理论上已被 filter 过滤）
-        return word[0].toUpperCase() + word.slice(1).toLowerCase()
+        return word[0].toUpperCase() + word.slice(1)
     })
 
     // 5. 拼接所有单词，返回小驼峰结果
@@ -230,16 +302,22 @@ export function kebabToCamelCase(str: string): string {
  *
  * @param str 输入的横杠分隔字符串（如 "helloWorld"或"HelloWorld"）=> hello-world
  * @returns 小驼峰格式字符串（如 "hello-world"）
+ * @example
+ * camelCaseToKebab("helloWorld") => hello-world
+ * camelCaseToKebab("FooBar") => foo-bar
  */
 export function camelCaseToKebab(str: string) {
     const hyphenateRE = /([^-])([A-Z])/g
-    return str.replace(hyphenateRE, '$1-$2').replace(hyphenateRE, '$1-$2').toLowerCase()
+    return str.replace(hyphenateRE, '$1-$2').toLowerCase()
 }
 
 /**
  * 将对象键转为小驼峰
  *
  * @param object 传入的对象
+ * @example
+ * const obj = {a: 'b', 'foo-bar': 'fooBar', CameCase: 'CameCase'}
+ * getCameCaseObject(obj) => {a: 'b', fooBar: 'fooBar', cameCase: 'CameCase'}
  */
 export function getCameCaseObject<T>(object: T): T {
     const o = {} as any
@@ -262,6 +340,11 @@ export function noop() {}
  * @param immediate 是否立即开始
  * @param step 每一次轮询后，增加的时间，单位毫秒
  * @param startWaitTime 初始等待时间（毫秒）
+ * @example
+ * const task = async () => {}
+ * const pollHandler = polling(task)
+ * pollHandler.paused() // 暂停
+ * pollHandler.resumed() // 恢复执行
  */
 export function polling(task: () => Promise<any>, success?: (res: any) => void, fail?: (res: any) => void, immediate = true, step = 20, startWaitTime = 100) {
     let start = startWaitTime
@@ -307,6 +390,10 @@ export function polling(task: () => Promise<any>, success?: (res: any) => void, 
  * 判断一个值是否是原始类型
  *
  * @param value 传入的值
+ * @example
+ * isPrimitive(对象) => false
+ * isPrimitive(() => {}) => false
+ * 其他情况均为true
  */
 export function isPrimitive(value: any) {
     if (value && typeof value === 'object') return false
@@ -315,10 +402,14 @@ export function isPrimitive(value: any) {
 }
 
 /**
- * 判断两个值是否相等
+ * 判断两个值是否相等， 原始值通过Object.is判断，非原始值递归判断
  *
  * @param v1 值一
  * @param v2 值二
+ * @example
+ * isEquals('foo', 'bar') => false
+ * isEquals({a: 'b', c: {d: 'e'}}, 'bar') => false
+ * isEquals({a: 'b', c: {d: 'e'}}, {a: 'b', c: {d: 'e'}}) => true
  */
 
 export function isEquals(v1: any, v2: any): boolean {
@@ -342,6 +433,9 @@ export function isEquals(v1: any, v2: any): boolean {
  * 数组去重，重的概念：原始类型用Object.is比较，非原始类型递归Object.is比较
  *
  * @param list 需要去重的数组
+ * @example
+ * // 内部使用isEquals去比较
+ * uniqueArray([{a: 'b', c: 'd'}, { a: 'b' }, {a: 'b'}, 1, 1, 'foo', 'foo', 'bar']) => [{a: 'b', c: 'd'}, {a: 'b'}, 1,'foo','bar']
  */
 
 export function uniqueArray<T>(list: Array<T>): T[] {
@@ -365,6 +459,9 @@ export function uniqueArray<T>(list: Array<T>): T[] {
  * @param dateTime 需要格式化的时间戳
  * @param formatStr 格式化规则 yyyy:mm:dd|yyyy:mm|yyyy年mm月dd日|yyyy年mm月dd日 hh时MM分等,可自定义组合 默认yyyy-mm-dd
  * @returns 返回格式化后的字符串
+ * @example
+ * formatDate() => 当前时间，比如：2025-10-10
+ * formatDate(new Date(2021, 9, 15, 23, 59, 9), 'yyyy-mm-dd hh:MM:ss') => 2021-10-15 23:59:09
  */
 export function formatDate(dateTime: any = null, formatStr = 'yyyy-mm-dd') {
     let date
@@ -418,6 +515,13 @@ export function formatDate(dateTime: any = null, formatStr = 'yyyy-mm-dd') {
  * @param timestamp 时间戳
  * @param format 格式化规则如果为时间格式字符串，超出一定时间范围，返回固定的时间格式； 如果为布尔值false，无论什么时间，都返回多久以前的格式
  * @returns 转化后的内容
+ * @example
+ * // 以当前时间为基准
+ * timeFrom() => 刚刚
+ * // 指定时间为基准
+ * timeFrom(new Date(2025, 9, 10, 18, 10, 9)) => 2025-10-10 或 刚刚 或 几分钟前 或 几个小时前 或 几天前
+ * timeFrom(new Date(2025, 9, 10, 18, 10, 9), 'yyyy-mm-dd hh:MM:ss') => 2025-10-10 18:10:09 或 刚刚 或 几分钟前 或 几个小时前 或 几天前
+ * timeFrom(new Date(2025, 9, 10, 18, 10, 9), false) => 2025-10-10 或 刚刚 或 几分钟前 或 几个小时前 或 几天前 或 几个月前 或 几年前
  */
 export function timeFrom(timestamp: null | string | number = null, format: string | false = 'yyyy-mm-dd') {
     if (timestamp == null) timestamp = Number(new Date())
@@ -455,4 +559,39 @@ export function timeFrom(timestamp: null | string | number = null, format: strin
             }
     }
     return tips
+}
+
+/**
+ * 生成sku数组，数组里面每一项都是一条sku组合，其实就是计算笛卡尔积。
+ * @param attrs 属性列表
+ * @example
+ * genSkus({color: ['red', 'green', 'blue'], shape: ['circle', 'round'], size: ['small', 'medium', 'large']}) =>
+ * 生成 [{color: 'red', size: 'small', shape: 'circle'}, ...]
+ * @returns skus数组
+ */
+export function genSkus<T extends Record<string, readonly any[]>>(attrs: T): Array<{[K in keyof T]: T[K][number]}> {
+    const keys = Object.keys(attrs)
+    if (keys.length === 0) return []
+    const combine = (index: number, template:any) => {
+        if (index >= keys.length) return [template];
+        const key = keys[index];
+        const values = attrs[key];
+        const res:any[] = []
+        for (const value of values) {
+            res.push(...combine(index + 1, { ...template, [key]: value }))
+        }
+        return res
+    }
+    return combine(0, {})
+}
+
+/**
+ * 去除地址中前后的斜杠
+ * @param url 属性列表
+ * @example
+ * normalizeUrl('//a/b/c//') => 'a/b/c'
+ * normalizeUrl('/a/b/c/') => 'a/b/c'
+ */
+export function normalizeUrl (url: string): string {
+    return url.replace(/^\/+|\/+$/g, '')
 }

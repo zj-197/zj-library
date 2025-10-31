@@ -85,7 +85,7 @@ export function mix(color1: string, color2: string, weight: number | string = 50
 }
 
 /**
- * 与白色混合，传10表示变浅到原来的10%
+ * 与白色混合，传10表示变浅到原来的10%, 注意这点是变浅到原来10%, 意思是传10只有传入颜色的10%，很浅
  *
  * @param color 第一种颜色（十六进制，如 #1963dc）
  * @param weight 第一种颜色的权重（0-100 或 "0%-100%"，默认 50）
@@ -96,7 +96,7 @@ export function light(color: string, weight: number | string = 50) {
 }
 
 /**
- * 与黑色混合 传10表示加深10%
+ * 与黑色混合 传10表示加深10%，注意这点是加深10%，意思是传入颜色加深10%
  *
  * @param color 第一种颜色（十六进制，如 #1963dc）
  * @param weight 第一种颜色的权重（0-100 或 "0%-100%"，默认 50）
