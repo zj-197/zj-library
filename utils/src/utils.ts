@@ -518,10 +518,10 @@ export function formatDate(dateTime: any = null, formatStr = 'yyyy-mm-dd') {
  * @example
  * // 以当前时间为基准
  * timeFrom() => 刚刚
- * // 指定时间为基准
- * timeFrom(new Date(2025, 9, 10, 18, 10, 9)) => 2025-10-10 或 刚刚 或 几分钟前 或 几个小时前 或 几天前
- * timeFrom(new Date(2025, 9, 10, 18, 10, 9), 'yyyy-mm-dd hh:MM:ss') => 2025-10-10 18:10:09 或 刚刚 或 几分钟前 或 几个小时前 或 几天前
- * timeFrom(new Date(2025, 9, 10, 18, 10, 9), false) => 2025-10-10 或 刚刚 或 几分钟前 或 几个小时前 或 几天前 或 几个月前 或 几年前
+ * // 指定时间距离当前时间过去了多少
+ * timeFrom(new Date(2025, 9, 10, 18, 10, 9).getTime()) => 2025-10-10 或 刚刚 或 几分钟前 或 几个小时前 或 几天前
+ * timeFrom(new Date(2025, 9, 10, 18, 10, 9).getTime(), 'yyyy-mm-dd hh:MM:ss') => 2025-10-10 18:10:09 或 刚刚 或 几分钟前 或 几个小时前 或 几天前
+ * timeFrom(new Date(2025, 9, 10, 18, 10, 9).getTime(), false) => 2025-10-10 或 刚刚 或 几分钟前 或 几个小时前 或 几天前 或 几个月前 或 几年前
  */
 export function timeFrom(timestamp: null | string | number = null, format: string | false = 'yyyy-mm-dd') {
     if (timestamp == null) timestamp = Number(new Date())
