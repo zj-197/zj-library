@@ -1,19 +1,11 @@
-import {
-    genSkus,
-    setPropertyValueByPath,
-    camelCaseToKebab,
-    isEquals,
-    formatDate,
-    timeFrom,
-    kebabToCamelCase
-} from './src/utils'
+import { genSkus, setPropertyValueByPath, camelCaseToKebab, isEquals, formatDate, timeFrom, kebabToCamelCase } from './src/utils'
 
 const colors = ['red', 'green', 'blue']
 const sizes = ['small', 'medium', 'large']
 const shapes = ['circle', 'round']
 
 // {color: 'red', size: 'small', shape: 'circle'}
-function getUrl (url: string): string {
+function getUrl(url: string): string {
     return url.replace(/^\/+|\/+$/g, '')
 }
 
