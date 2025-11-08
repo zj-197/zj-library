@@ -1,5 +1,13 @@
 # @zj-library/vue-components
 
+## 1.0.4
+
+### Patch Changes
+
+-   81195b2: 增加部分工具方法，优化部分组件
+-   Updated dependencies [81195b2]
+    -   @zj-library/utils@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

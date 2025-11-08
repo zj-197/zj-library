@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import FormTableItem from './Item.vue'
 import { Search, Refresh } from '@element-plus/icons-vue'
 import { formContextKey } from 'element-plus'
 import { computed, inject, nextTick, ref } from 'vue'
@@ -8,7 +7,6 @@ const props = withDefaults(
     defineProps<{
         searchText?: string
         resetText?: string
-        marginTop?: string
     }>(),
     {
         searchText: '搜索',
@@ -42,14 +40,8 @@ const handleReset = async () => {
     )
 }
 const containerStyle = computed(() => {
-    const labelPosition = formContext?.labelPosition
     const styles: any = {
         marginLeft: 'auto'
-    }
-    if (props.marginTop) {
-        styles.marginTop = props.marginTop
-    } else if (labelPosition === 'top') {
-        styles.marginTop = '30px'
     }
     return styles
 })
@@ -59,10 +51,13 @@ defineOptions({
 </script>
 
 <template>
-    <form-table-item hidden-table-column>
+    <el-form-item>
+        <template v-slot:label>
+            <span style="color: transparent">.</span>
+        </template>
         <div :style="containerStyle">
             <el-button :disabled="isResetLoading" type="primary" :icon="Search" :loading="isSearchLoading" @click.stop="handleSearch">{{ props.searchText }}</el-button>
             <el-button :disabled="isSearchLoading" :loading="isResetLoading" :icon="Refresh" @click.stop="handleReset">{{ props.resetText }}</el-button>
         </div>
-    </form-table-item>
+    </el-form-item>
 </template>

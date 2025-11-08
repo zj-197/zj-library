@@ -3,6 +3,7 @@ import TableEditColumn from './EditColumn.vue'
 import { deepClone } from '@zj-library/utils'
 import { computed, inject } from 'vue'
 import { formContextKey } from 'element-plus'
+import { Delete, Edit } from '@element-plus/icons-vue'
 import { EditTable, IsInputting, __RowCancelLoading__, __RowConfirmLoading__, __RowDeleteLoading__, getELTableColumnProps } from './utils'
 import type { ElTableColumnProps, ModelValueItemType } from './types'
 defineOptions({
@@ -24,6 +25,8 @@ const props = withDefaults(
             isHiddenDeleteBtn?: boolean
             // 是否隐藏取消按钮
             isHiddenCancelBtn?: boolean
+            // 是否需要icon
+            hasIcon?: boolean
             confirmText?: string
             cancelText?: string
             editText?: string
@@ -168,9 +171,18 @@ defineExpose({
             </el-button>
         </template>
         <template v-slot:view="{ row, index, column }">
-            <el-button type="primary" v-if="!props.isHiddenEditBtn" :text="props.btnIsText" @click="handleEdit(index)">{{ props.editText }}</el-button>
+            <el-button :icon="props.hasIcon ? Edit : null" type="primary" v-if="!props.isHiddenEditBtn" :text="props.btnIsText" @click="handleEdit(index)">
+                {{ props.editText }}
+            </el-button>
             <slot name="other-actions" :column="column" :index="index" :row="row"></slot>
-            <el-button type="danger" v-if="!props.isHiddenDeleteBtn" :loading="row[__RowDeleteLoading__]" @click.stop="handleDelete(index)" :text="props.btnIsText">
+            <el-button
+                :icon="props.hasIcon ? Delete : null"
+                type="danger"
+                v-if="!props.isHiddenDeleteBtn"
+                :loading="row[__RowDeleteLoading__]"
+                @click.stop="handleDelete(index)"
+                :text="props.btnIsText"
+            >
                 {{ props.deleteText }}
             </el-button>
         </template>

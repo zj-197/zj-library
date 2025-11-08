@@ -1,5 +1,11 @@
 # @zj-library/utils
 
+## 1.0.4
+
+### Patch Changes
+
+-   81195b2: 增加部分工具方法，优化部分组件
+
 ## 1.0.3
 
 ### Patch Changes

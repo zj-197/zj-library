@@ -1,30 +1,20 @@
-import { sleep, setPropertyValueByPath, camelCaseToKebab, isEquals, formatDate, timeFrom } from './src/utils'
-let index = 0
+import { genSkus, setPropertyValueByPath, camelCaseToKebab, isEquals, formatDate, timeFrom, kebabToCamelCase } from './src/utils'
 
-const fn1 = async () => {
-    await sleep(500)
-    console.log('fn1')
-}
-const fn2 = async () => {
-    await sleep(500)
-    console.log('fn2')
-}
-const fn3 = async () => {
-    await sleep(500)
-    console.log('fn3')
-    return Promise.reject('错误fn3')
-}
-const fn4 = async () => {
-    await sleep(500)
-    console.log('fn4')
-}
-const fn5 = async () => {
-    await sleep(500)
-    console.log('fn5')
-}
-const obj = {}
-console.log({ b: { c: [[{ e: 1 }]] } })
-console.log(setPropertyValueByPath(obj, 'b.c[0][0].e', 1), 'setPropertyValueByPath')
-console.log(camelCaseToKebab('GelloorldHeelp'), 'setPropertyValueByPath')
+const colors = ['red', 'green', 'blue']
+const sizes = ['small', 'medium', 'large']
+const shapes = ['circle', 'round']
 
-console.log(timeFrom(1760814851))
+// {color: 'red', size: 'small', shape: 'circle'}
+function getUrl(url: string): string {
+    return url.replace(/^\/+|\/+$/g, '')
+}
+
+console.log(getUrl('10.82.12.10:8000'))
+
+const skus = genSkus({
+    size: sizes,
+    shape: shapes,
+    color: colors
+})
+
+console.log(kebabToCamelCase('CDE'))
