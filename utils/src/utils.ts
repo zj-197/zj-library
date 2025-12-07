@@ -102,6 +102,10 @@ export function merge(target: any, mergeArray: boolean, ...sources: any[]) {
         if (!isArrayOrObject(source)) {
             continue
         }
+        if (Array.isArray(source) && Array.isArray(target) && !mergeArray) {
+            target = source
+            continue
+        }
         for (const key in source) {
             if (Array.isArray(source[key])) {
                 if (Array.isArray(target[key]) && mergeArray) {
