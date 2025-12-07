@@ -1,5 +1,11 @@
 # @zj-library/utils
 
+## 1.0.5
+
+### Patch Changes
+
+-   10fdaeb: 修改merge函数合并数组时的bug
+
 ## 1.0.4
 
 ### Patch Changes
