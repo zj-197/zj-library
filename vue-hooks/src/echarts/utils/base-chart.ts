@@ -51,7 +51,7 @@ export default abstract class BaseCpn {
     }
 
     // 设置标题
-    setTitle(options: echarts.EChartsOption['title'] | string) {
+    setTitle(options: TitleComponentOption | string) {
         if (typeof options == 'string') {
             // @ts-ignore
             this.title.text = options
@@ -67,7 +67,7 @@ export default abstract class BaseCpn {
     }
 
     // 设置提示框
-    setTooltip(options: echarts.EChartsOption['tooltip']) {
+    setTooltip(options: TooltipComponentOption) {
         // @ts-ignore;
         if (options.data) {
             this.clearData(this.tooltip)
@@ -78,7 +78,7 @@ export default abstract class BaseCpn {
     }
 
     // 设置工具栏
-    setToolbox(options: echarts.EChartsOption['toolbox']) {
+    setToolbox(options: ToolboxComponentOption) {
         // @ts-ignore;
         if (options.data) {
             this.clearData(this.toolbox)
@@ -89,12 +89,10 @@ export default abstract class BaseCpn {
     }
 
     // 设置图例
-    setLegend(options: echarts.EChartsOption['legend']) {
-        // @ts-ignore
+    setLegend(options: LegendComponentOption) {
         if (Array.isArray(options.data)) {
             this.clearData(this.legend)
         }
-        // @ts-ignore
         if (options.selected) {
             // @ts-ignore
             this.legend.selected = Array.isArray(options.selected) ? [] : {}
@@ -156,7 +154,7 @@ export default abstract class BaseCpn {
         this.clearData(this.legend)
     }
 
-    setGrid(options: echarts.EChartsOption['grid']) {
+    setGrid(options: GridComponentOption) {
         if (options && typeof options == 'object') {
             // @ts-ignore
             if (options.data) {
