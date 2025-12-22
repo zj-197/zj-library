@@ -48,7 +48,7 @@ export default class AxisChart extends BaseCpn {
         }
     }
 
-    setXAxis(bottom: (typeof this.xAxis)[0], top?: (typeof this.xAxis)[0]) {
+    setXAxis(bottom: typeof AxisChart['xAxis'], top?: (typeof this.xAxis)[0]) {
         if (Array.isArray(bottom.data)) {
             this.clearData(this.xAxis[0])
         }
