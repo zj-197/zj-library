@@ -1,5 +1,13 @@
 # @zj-library/vue-hooks
 
+## 1.0.4
+
+### Patch Changes
+
+-   466974b: 修改类型不提示的问题
+-   Updated dependencies [466974b]
+    -   @zj-library/utils@1.0.6
+
 ## 1.0.3
 
 ### Patch Changes

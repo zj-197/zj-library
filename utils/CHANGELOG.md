@@ -1,5 +1,11 @@
 # @zj-library/utils
 
+## 1.0.6
+
+### Patch Changes
+
+-   466974b: 修改类型不提示的问题
+
 ## 1.0.5
 
 ### Patch Changes
