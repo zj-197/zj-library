@@ -1,5 +1,11 @@
 # @zj-library/vue-hooks
 
+## 1.0.5
+
+### Patch Changes
+
+-   743532b: echarts setSeries函数dataKey类型必传的问题
+
 ## 1.0.4
 
 ### Patch Changes
