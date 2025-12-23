@@ -48,7 +48,7 @@ export default class AxisChart extends BaseCpn {
         }
     }
 
-    setXAxis(bottom: (typeof this.xAxis)[0], top?: (typeof this.xAxis)[0]) {
+    setXAxis(bottom: AxisChart['xAxis'][0], top?: AxisChart['xAxis'][0]) {
         if (Array.isArray(bottom.data)) {
             this.clearData(this.xAxis[0])
         }
@@ -61,7 +61,7 @@ export default class AxisChart extends BaseCpn {
         }
     }
 
-    setYAxis(left: (typeof this.yAxis)[0], right?: (typeof this.yAxis)[0]) {
+    setYAxis(left: AxisChart['yAxis'][0], right?: AxisChart['yAxis'][0]) {
         if (Array.isArray(left.data)) {
             this.clearData(this.yAxis[0])
         }
@@ -74,13 +74,34 @@ export default class AxisChart extends BaseCpn {
         }
     }
 
-    setDataZoom(dataZoom: typeof this.dataZoom) {
+    setDataZoom(dataZoom: AxisChart['dataZoom']) {
         merge(this.dataZoom, false, dataZoom)
     }
 
     setSeriess(fn: (item: (LineSeriesOption & CustomSeriesOption) | (BarSeriesOption & CustomSeriesOption)) => void) {
         for (const item of this.series) {
             fn(item)
+        }
+    }
+    setLineSeries(seriesDataKey: string, options: LineSeriesOption & Partial<CustomSeriesOption>) {
+        this.setSeries(seriesDataKey, options)
+    }
+
+    setLineSeriess(fn: (item: LineSeriesOption & CustomSeriesOption) => void) {
+        for (const item of this.series) {
+            if (item.type === 'line') {
+                fn(item)
+            }
+        }
+    }
+    setBarSeries(seriesDataKey: string, options: BarSeriesOption & Partial<CustomSeriesOption>) {
+        this.setSeries(seriesDataKey, options)
+    }
+    setBarSeriess(fn: (item: BarSeriesOption & CustomSeriesOption) => void) {
+        for (const item of this.series) {
+            if (item.type === 'bar') {
+                fn(item)
+            }
         }
     }
 }

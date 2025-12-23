@@ -103,7 +103,8 @@ export function merge(target: any, mergeArray: boolean, ...sources: any[]) {
             continue
         }
         if (Array.isArray(source) && Array.isArray(target) && !mergeArray) {
-            target = source
+            target.length = 0
+            target.push(...source)
             continue
         }
         for (const key in source) {
