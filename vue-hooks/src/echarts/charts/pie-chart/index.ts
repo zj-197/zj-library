@@ -31,7 +31,7 @@ export default class PieChart extends BaseCpn {
         }
     }
     // @ts-ignore
-    setSeries(seriesDataKey: string, options: PieSeriesOption & CustomSeriesOption) {
+    setSeries(seriesDataKey: string, options: PieSeriesOption & Partial<CustomSeriesOption>) {
         super.setSeries(seriesDataKey, options)
     }
 }

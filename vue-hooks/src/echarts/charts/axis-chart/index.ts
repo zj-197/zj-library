@@ -4,7 +4,6 @@ import BaseCpn from '../../utils/base-chart'
 import type { Config, CustomSeriesOption } from '../../utils/type'
 import { merge } from '@zj-library/utils'
 
-
 export default class AxisChart extends BaseCpn {
     xAxis: Array<XAXisComponentOption & { data?: Array<any> }>
     yAxis: Array<YAXisComponentOption & { data?: Array<any> }>
@@ -76,7 +75,7 @@ export default class AxisChart extends BaseCpn {
     }
 
     setDataZoom(dataZoom: AxisChart['dataZoom']) {
-       merge(this.dataZoom, false, dataZoom)
+        merge(this.dataZoom, false, dataZoom)
     }
 
     setSeriess(fn: (item: (LineSeriesOption & CustomSeriesOption) | (BarSeriesOption & CustomSeriesOption)) => void) {
@@ -84,7 +83,7 @@ export default class AxisChart extends BaseCpn {
             fn(item)
         }
     }
-    setLineSeries(seriesDataKey: string, options: LineSeriesOption & CustomSeriesOption) {
+    setLineSeries(seriesDataKey: string, options: LineSeriesOption & Partial<CustomSeriesOption>) {
         this.setSeries(seriesDataKey, options)
     }
 
@@ -95,7 +94,7 @@ export default class AxisChart extends BaseCpn {
             }
         }
     }
-    setBarSeries(seriesDataKey: string, options: BarSeriesOption & CustomSeriesOption) {
+    setBarSeries(seriesDataKey: string, options: BarSeriesOption & Partial<CustomSeriesOption>) {
         this.setSeries(seriesDataKey, options)
     }
     setBarSeriess(fn: (item: BarSeriesOption & CustomSeriesOption) => void) {
